@@ -8,6 +8,7 @@
     const container = document.getElementById('canvas-container');
     if (!container || typeof THREE === 'undefined') return;
 
+    try {
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
@@ -122,6 +123,9 @@
         camera.updateProjectionMatrix();
         renderer.setSize(window.innerWidth, window.innerHeight);
     });
+    } catch (e) {
+        console.warn('WebGL not available, skipping 3D background:', e.message);
+    }
 })();
 
 // ==================== Scroll Animations (enhancement only, never hides content) ====================
@@ -686,8 +690,14 @@ const translations = {
     });
 })();
 
-// ==================== Card Detail Toggle ====================
-(function initCardDetailToggle() {
+// ==================== Card Detail Modal ====================
+(function initCardModal() {
+    const overlay = document.getElementById('card-modal-overlay');
+    if (!overlay) return;
+
+    const modalHeader = overlay.querySelector('.card-modal-header');
+    const modalBody = overlay.querySelector('.card-modal-body');
+    const closeBtn = overlay.querySelector('.card-modal-close');
     const cardSelectors = '.module-card, .service-card, .ai-model-card, .domain-card';
 
     document.querySelectorAll(cardSelectors).forEach(card => {
@@ -695,18 +705,34 @@ const translations = {
         if (!detail) return;
 
         card.addEventListener('click', (e) => {
-            // Don't toggle if clicking a link or button inside the card
             if (e.target.closest('a, button')) return;
 
-            const isOpen = detail.classList.contains('open');
+            // Clone card content for header (exclude .card-detail)
+            const clone = card.cloneNode(true);
+            const cloneDetail = clone.querySelector('.card-detail');
+            if (cloneDetail) cloneDetail.remove();
+            modalHeader.innerHTML = clone.innerHTML;
 
-            if (isOpen) {
-                detail.classList.remove('open');
-                card.classList.remove('expanded');
-            } else {
-                detail.classList.add('open');
-                card.classList.add('expanded');
-            }
+            // Populate body from detail panel
+            modalBody.innerHTML = detail.innerHTML;
+
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
         });
+    });
+
+    function closeModal() {
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    closeBtn.addEventListener('click', closeModal);
+
+    overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) closeModal();
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && overlay.classList.contains('active')) closeModal();
     });
 })();
