@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIMES | AI-based Manufacturing Execution System</title>
+    <meta name="description" content="AIMES는 AI/ML 기반의 예측적 품질관리, 실시간 공정 최적화, 자율적 의사결정을 구현하는 차세대 제조실행시스템입니다.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%230ea5e9'/%3E%3Ctext x='50' y='62' font-size='28' font-weight='bold' text-anchor='middle' fill='white'%3EAI%3C/text%3E%3C/svg%3E">
+
+    <!-- CDNs -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Internal CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- 3D Canvas Background -->
+    <div id="canvas-container"></div>
+
+    <!-- ==================== Navigation ==================== -->
+    <nav class="navbar navbar-expand-lg fixed-top glass-nav">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <span class="brand-accent">AI</span>MES
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <i class="bi bi-list text-white"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="#architecture" data-i18n="nav_arch">아키텍처</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#modules" data-i18n="nav_modules">핵심 모듈</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services" data-i18n="nav_services">마이크로서비스</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#ai-pipeline" data-i18n="nav_ai">AI/ML</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#workflow" data-i18n="nav_workflow">워크플로우</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#roi" data-i18n="nav_roi">ROI</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#roadmap" data-i18n="nav_roadmap">로드맵</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <div class="lang-toggle">
+                            <button class="lang-btn active" data-lang="ko">KR</button>
+                            <button class="lang-btn" data-lang="en">EN</button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==================== Hero Section ==================== -->
+    <section class="hero-section" id="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7 content-fade-up">
+                    <div class="mb-3">
+                        <span class="section-tag section-tag-primary">A3 Security Co., Ltd.</span>
+                        <span class="section-tag section-tag-accent ms-2">A3-AI Working Group</span>
+                    </div>
+                    <h1 class="hero-title">
+                        <span data-i18n="hero_title_1">기존 MES를 넘어</span><br>
+                        <span class="text-gradient" data-i18n="hero_title_2">AI가 제조를 혁신하다</span>
+                    </h1>
+                    <p class="hero-subtitle" data-i18n="hero_subtitle">
+                        AIMES는 AI/ML 기반의 예측적 품질관리, 실시간 공정 최적화, 자율적 의사결정을 구현하는 차세대 제조실행시스템입니다. 대한민국 식품제조 중견/중소기업의 AX(AI Transformation) 전환을 위한 표준 플랫폼을 목표로 합니다.
+                    </p>
+                    <div class="d-flex gap-3 flex-wrap">
+                        <a href="#architecture" class="btn-main" data-i18n="hero_btn_arch">아키텍처 살펴보기</a>
+                        <a href="#modules" class="btn-outline-glow" data-i18n="hero_btn_modules">핵심 모듈</a>
+                    </div>
+
+                    <!-- Stats -->
+                    <div class="row mt-5 pt-3">
+                        <div class="col-3">
+                            <div class="stat-box">
+                                <div class="stat-number" data-count="9">0</div>
+                                <div class="stat-label" data-i18n="stat_services">마이크로서비스</div>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="stat-box">
+                                <div class="stat-number" data-count="143">0</div>
+                                <div class="stat-label" data-i18n="stat_api">API 엔드포인트</div>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="stat-box">
+                                <div class="stat-number" data-count="6">0</div>
+                                <div class="stat-label" data-i18n="stat_ai">AI/ML 모델</div>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="stat-box">
+                                <div class="stat-number" data-count="19">0</div>
+                                <div class="stat-label" data-i18n="stat_pages">대시보드 페이지</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Right - Architecture Mini Diagram -->
+                <div class="col-lg-5 d-none d-lg-block">
+                    <div class="hero-arch-visual floating">
+                        <div class="arch-layer" style="background: rgba(14, 165, 233, 0.08); border-color: rgba(14, 165, 233, 0.3);">
+                            <span class="layer-tag">L8</span> Presentation Layer
+                        </div>
+                        <div class="arch-layer" style="background: rgba(14, 165, 233, 0.06); border-color: rgba(14, 165, 233, 0.25);">
+                            <span class="layer-tag">L7</span> API Gateway Layer
+                        </div>
+                        <div class="arch-layer" style="background: rgba(139, 92, 246, 0.08); border-color: rgba(139, 92, 246, 0.3);">
+                            <span class="layer-tag">L6</span> <strong style="color: #8b5cf6;">Application Service Layer</strong>
+                        </div>
+                        <div class="arch-layer" style="background: rgba(244, 114, 182, 0.08); border-color: rgba(244, 114, 182, 0.3);">
+                            <span class="layer-tag" style="color: #f472b6;">L5</span> <strong style="color: #f472b6;">AI/ML Service Layer</strong>
+                        </div>
+                        <div class="arch-layer" style="background: rgba(16, 185, 129, 0.06); border-color: rgba(16, 185, 129, 0.2);">
+                            <span class="layer-tag">L4</span> Data Processing Layer
+                        </div>
+                        <div class="arch-layer" style="background: rgba(14, 165, 233, 0.05); border-color: rgba(14, 165, 233, 0.15);">
+                            <span class="layer-tag">L3</span> Data Storage Layer
+                        </div>
+                        <div class="arch-layer" style="background: rgba(245, 158, 11, 0.06); border-color: rgba(245, 158, 11, 0.2);">
+                            <span class="layer-tag" style="color: var(--warning);">L2</span> Edge Gateway Layer
+                        </div>
+                        <div class="arch-layer" style="background: rgba(255, 255, 255, 0.03); border-color: rgba(255, 255, 255, 0.1);">
+                            <span class="layer-tag">L1</span> OT Integration Layer
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <i class="bi bi-chevron-double-down text-muted" style="font-size: 1.5rem;"></i>
+        </div>
+    </section>
+
+    <!-- ==================== Background & Market ==================== -->
+    <section class="section py-5" id="background">
+        <div class="container py-5">
+            <div class="text-center mb-5 fade-in">
+                <span class="section-tag section-tag-primary" data-i18n="bg_tag">BACKGROUND</span>
+                <h2 class="section-title" data-i18n="bg_title">식품제조업 AX 전환의 필요성</h2>
+                <p class="section-desc" data-i18n="bg_desc">대한민국 식품제조업 7만개+ 사업체 중 스마트팩토리 도입률 19.5%, 그 중 75.5%가 기초 수준에 머물러 있습니다.</p>
+            </div>
+
+            <div class="row g-4 fade-in">
+                <div class="col-md-4">
+                    <div class="glass-card p-4 text-center h-100">
+                        <div class="icon-box-lg mx-auto mb-3"><i class="bi bi-building"></i></div>
+                        <h5 data-i18n="bg_target_title">타겟 시장</h5>
+                        <p class="small text-muted" data-i18n="bg_target_desc">KSIC 중분류 10(식료품제조업), 11(음료제조업)</p>
+                        <div class="d-flex flex-wrap gap-2 justify-content-center mt-3">
+                            <span class="feature-tag">HMR/조리식품</span>
+                            <span class="feature-tag">음료 충전라인</span>
+                            <span class="feature-tag">낙농제품</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="glass-card p-4 text-center h-100">
+                        <div class="icon-box-lg icon-box-accent mx-auto mb-3"><i class="bi bi-graph-up-arrow"></i></div>
+                        <h5 data-i18n="bg_size_title">타겟 기업 규모</h5>
+                        <p class="small text-muted" data-i18n="bg_size_desc">매출 100억~5,000억 규모의 중견/중소기업</p>
+                        <div class="d-flex flex-wrap gap-2 justify-content-center mt-3">
+                            <span class="feature-tag feature-tag-purple">중견기업 1,000~5,000억</span>
+                            <span class="feature-tag feature-tag-purple">중소기업 100~1,000억</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="glass-card p-4 text-center h-100">
+                        <div class="icon-box-lg icon-box-success mx-auto mb-3"><i class="bi bi-shield-check"></i></div>
+                        <h5 data-i18n="bg_diff_title">차별화 전략</h5>
+                        <p class="small text-muted" data-i18n="bg_diff_desc">A3 Security의 보안 역량 + AI 기술력 결합</p>
+                        <div class="d-flex flex-wrap gap-2 justify-content-center mt-3">
+                            <span class="feature-tag" style="background: rgba(16,185,129,0.1); color: var(--success); border-color: rgba(16,185,129,0.2);">온프레미스 보안</span>
+                            <span class="feature-tag" style="background: rgba(16,185,129,0.1); color: var(--success); border-color: rgba(16,185,129,0.2);">Zero Trust</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 8-Layer Architecture ==================== -->
+    <section class="section py-5 bg-dim" id="architecture">
+        <div class="container py-5">
+            <div class="text-center mb-5 fade-in">
+                <span class="section-tag section-tag-primary" data-i18n="arch_tag">ARCHITECTURE</span>
+                <h2 class="section-title" data-i18n="arch_title">8계층 시스템 아키텍처</h2>
+                <p class="section-desc" data-i18n="arch_desc">ISA-95 표준 준거, Purdue Model 기반 OT/IT 분리, 마이크로서비스 아키텍처로 설계되었습니다.</p>
+            </div>
+
+            <div class="arch-diagram fade-in">
+                <!-- L8 -->
+                <div class="arch-row">
+                    <span class="arch-label">L8</span>
+                    <span class="arch-name" data-i18n="arch_l8_name">Presentation Layer</span>
+                    <div class="arch-items">
+                        <span class="arch-item">Web UI (React.js)</span>
+                        <span class="arch-item">Mobile (React Native)</span>
+                        <span class="arch-item">Grafana Dashboard</span>
+                        <span class="arch-item">HACCP Report Viewer</span>
+                    </div>
+                </div>
+                <!-- L7 -->
+                <div class="arch-row">
+                    <span class="arch-label">L7</span>
+                    <span class="arch-name" data-i18n="arch_l7_name">API Gateway Layer</span>
+                    <div class="arch-items">
+                        <span class="arch-item">JWT Auth</span>
+                        <span class="arch-item">RBAC</span>
+                        <span class="arch-item">Rate Limiting</span>
+                        <span class="arch-item">Circuit Breaker</span>
+                        <span class="arch-item">WAF</span>
+                    </div>
+                </div>
+                <!-- L6 -->
+                <div class="arch-row highlight-companion" style="background: rgba(139, 92, 246, 0.06); border-color: rgba(139, 92, 246, 0.15);">
+                    <span class="arch-label" style="color: var(--accent);">L6</span>
+                    <span class="arch-name" style="color: var(--accent);" data-i18n="arch_l6_name">Application Service Layer</span>
+                    <div class="arch-items">
+                        <span class="arch-item" style="border-color: rgba(139,92,246,0.3); color: var(--accent);">Production</span>
+                        <span class="arch-item" style="border-color: rgba(139,92,246,0.3); color: var(--accent);">Quality</span>
+                        <span class="arch-item" style="border-color: rgba(139,92,246,0.3); color: var(--accent);">Inventory</span>
+                        <span class="arch-item" style="border-color: rgba(139,92,246,0.3); color: var(--accent);">Maintenance</span>
+                        <span class="arch-item" style="border-color: rgba(139,92,246,0.3); color: var(--accent);">HACCP</span>
+                        <span class="arch-item" style="border-color: rgba(139,92,246,0.3); color: var(--accent);">Traceability</span>
+                    </div>
+                </div>
+                <!-- L5 -->
+                <div class="arch-row highlight-companion" style="background: rgba(244, 114, 182, 0.06); border-color: rgba(244, 114, 182, 0.15);">
+                    <span class="arch-label" style="color: var(--companion);">L5</span>
+                    <span class="arch-name" style="color: var(--companion);" data-i18n="arch_l5_name">AI/ML Service Layer</span>
+                    <div class="arch-items">
+                        <span class="arch-item" style="border-color: rgba(244,114,182,0.3); color: var(--companion);">Quality Prediction</span>
+                        <span class="arch-item" style="border-color: rgba(244,114,182,0.3); color: var(--companion);">Anomaly Detection</span>
+                        <span class="arch-item" style="border-color: rgba(244,114,182,0.3); color: var(--companion);">Vision AI</span>
+                        <span class="arch-item" style="border-color: rgba(244,114,182,0.3); color: var(--companion);">Process Optimization</span>
+                        <span class="arch-item" style="border-color: rgba(244,114,182,0.3); color: var(--companion);">MLOps (MLflow+DVC)</span>
+                    </div>
+                </div>
+                <!-- L4 -->
+                <div class="arch-row">
+                    <span class="arch-label" style="color: var(--success);">L4</span>
+                    <span class="arch-name" data-i18n="arch_l4_name">Data Processing Layer</span>
+                    <div class="arch-items">
+                        <span class="arch-item">Apache Kafka</span>
+                        <span class="arch-item">Airflow ETL</span>
+                        <span class="arch-item">Data Validation</span>
+                    </div>
+                </div>
+                <!-- L3 -->
+                <div class="arch-row">
+                    <span class="arch-label">L3</span>
+                    <span class="arch-name" data-i18n="arch_l3_name">Data Storage Layer</span>
+                    <div class="arch-items">
+                        <span class="arch-item">PostgreSQL</span>
+                        <span class="arch-item">TimescaleDB</span>
+                        <span class="arch-item">MinIO (S3)</span>
+                        <span class="arch-item">Redis</span>
+                    </div>
+                </div>
+                <!-- L2 -->
+                <div class="arch-row">
+                    <span class="arch-label" style="color: var(--warning);">L2</span>
+                    <span class="arch-name" data-i18n="arch_l2_name">Edge Gateway Layer</span>
+                    <div class="arch-items">
+                        <span class="arch-item">NVIDIA Jetson</span>
+                        <span class="arch-item">Protocol Converter</span>
+                        <span class="arch-item">Edge AI Inference</span>
+                        <span class="arch-item">Data Buffering</span>
+                    </div>
+                </div>
+                <!-- L1 -->
+                <div class="arch-row">
+                    <span class="arch-label" style="color: var(--text-muted);">L1</span>
+                    <span class="arch-name" data-i18n="arch_l1_name">OT Integration Layer</span>
+                    <div class="arch-items">
+                        <span class="arch-item">PLC (Siemens/Mitsubishi)</span>
+                        <span class="arch-item">SCADA</span>
+                        <span class="arch-item">Sensors (Temp/pH/Vibration)</span>
+                        <span class="arch-item">Vision Camera</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== Core Modules ==================== -->
+    <section class="section py-5 position-relative" id="modules">
+        <div class="glow-bg glow-bg-accent"></div>
+        <div class="container py-5">
+            <div class="text-center mb-5 fade-in">
+                <span class="section-tag section-tag-accent" data-i18n="mod_tag">CORE MODULES</span>
+                <h2 class="section-title">
+                    <span class="text-gradient" data-i18n="mod_title">AIMES 핵심 적용 영역</span>
+                </h2>
+                <p class="section-desc" data-i18n="mod_desc">기존 MES 기능에 AI/ML 기능을 통합하여 식품제조업의 핵심 과제를 해결합니다.</p>
+            </div>
+
+            <div class="modules-grid fade-in">
+                <!-- AI Quality -->
+                <div class="module-card">
+                    <div class="card-icon icon-box-companion"><i class="bi bi-clipboard2-pulse"></i></div>
+                    <h4 data-i18n="mod_quality_title">AI 품질예측</h4>
+                    <p data-i18n="mod_quality_desc">공정 변수 실시간 분석으로 품질 이상 사전 감지. SPC 자동화 및 AI 기반 이상치 탐지로 불량을 예방합니다.</p>
+                    <div class="module-kpi">
+                        <div class="kpi-item">
+                            <span class="kpi-value" style="color: var(--companion);">40~60%</span>
+                            <span class="kpi-label" data-i18n="mod_quality_kpi1">불량률 감소</span>
+                        </div>
+                        <div class="kpi-item">
+                            <span class="kpi-value" style="color: var(--companion);">95%+</span>
+                            <span class="kpi-label" data-i18n="mod_quality_kpi2">검사 정확도</span>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <span class="feature-tag feature-tag-pink">LSTM/XGBoost</span>
+                        <span class="feature-tag feature-tag-pink">비전 AI</span>
+                        <span class="feature-tag feature-tag-pink">SPC 자동화</span>
+                    </div>
+                </div>
+
+                <!-- Process Optimization -->
+                <div class="module-card">
+                    <div class="card-icon icon-box-accent"><i class="bi bi-sliders2"></i></div>
+                    <h4 data-i18n="mod_process_title">AI 공정최적화</h4>
+                    <p data-i18n="mod_process_desc">최적 공정 파라미터 자동 설정. 원료 특성 변화에 따른 적응적 제어. 디지털 트윈 기반 시뮬레이션을 구현합니다.</p>
+                    <div class="module-kpi">
+                        <div class="kpi-item">
+                            <span class="kpi-value" style="color: var(--accent);">5~10%</span>
+                            <span class="kpi-label" data-i18n="mod_process_kpi1">수율 향상</span>
+                        </div>
+                        <div class="kpi-item">
+                            <span class="kpi-value" style="color: var(--accent);">15%</span>
+                            <span class="kpi-label" data-i18n="mod_process_kpi2">에너지 절감</span>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <span class="feature-tag feature-tag-purple">RL (PPO)</span>
+                        <span class="feature-tag feature-tag-purple">Bayesian Opt.</span>
+                        <span class="feature-tag feature-tag-purple">디지털 트윈</span>
+                    </div>
+                </div>
+
+                <!-- Predictive Maintenance -->
+                <div class="module-card">
+                    <div class="card-icon icon-box"><i class="bi bi-gear-wide-connected"></i></div>
+                    <h4 data-i18n="mod_maint_title">AI 예지보전</h4>
+                    <p data-i18n="mod_maint_desc">IoT 센서 데이터 기반 설비 고장 예측. 최적 정비 주기 산출. 설비 수명 예측으로 비계획 정지를 최소화합니다.</p>
+                    <div class="module-kpi">
+                        <div class="kpi-item">
+                            <span class="kpi-value" style="color: var(--primary);">50~70%</span>
+                            <span class="kpi-label" data-i18n="mod_maint_kpi1">비계획정지 감소</span>
+                        </div>
+                        <div class="kpi-item">
+                            <span class="kpi-value" style="color: var(--primary);">90%+</span>
+                            <span class="kpi-label" data-i18n="mod_maint_kpi2">OEE 목표</span>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <span class="feature-tag">LSTM</span>
+                        <span class="feature-tag">Survival Analysis</span>
+                        <span class="feature-tag">RUL 예측</span>
+                    </div>
+                </div>
+
+                <!-- Vision AI -->
+                <div class="module-card">
+                    <div class="card-icon icon-box-success"><i class="bi bi-eye"></i></div>
+                    <h4 data-i18n="mod_vision_title">AI 비전검사</h4>
+                    <p data-i18n="mod_vision_desc">외관 불량 자동 검출(색상, 형상, 이물). 포장 상태 검사. 라벨링 검증으로 검사 인력을 크게 절감합니다.</p>
+                    <div class="module-kpi">
+                        <div class="kpi-item">
+                            <span class="kpi-value" style="color: var(--success);">95%+</span>
+                            <span class="kpi-label" data-i18n="mod_vision_kpi1">검사 정확도</span>
+                        </div>
+                        <div class="kpi-item">
+                            <span class="kpi-value" style="color: var(--success);">70%</span>
+                            <span class="kpi-label" data-i18n="mod_vision_kpi2">검사인력 절감</span>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <span class="feature-tag" style="background: rgba(16,185,129,0.1); color: var(--success); border-color: rgba(16,185,129,0.2);">YOLOv8</span>
+                        <span class="feature-tag" style="background: rgba(16,185,129,0.1); color: var(--success); border-color: rgba(16,185,129,0.2);">EfficientNet</span>
+                        <span class="feature-tag" style="background: rgba(16,185,129,0.1); color: var(--success); border-color: rgba(16,185,129,0.2);">TensorRT</span>
+                    </div>
+                </div>
+
+                <!-- HACCP Automation -->
+                <div class="module-card">
+                    <div class="card-icon icon-box-warning"><i class="bi bi-thermometer-half"></i></div>
+                    <h4 data-i18n="mod_haccp_title">HACCP 자동화</h4>
+                    <p data-i18n="mod_haccp_desc">CCP 실시간 모니터링 및 자동 기록. 이탈 시 자동 경보/조치. 식약처 보고서 자동 생성으로 규제 대응을 혁신합니다.</p>
+                    <div class="module-kpi">
+                        <div class="kpi-item">
+                            <span class="kpi-value" style="color: var(--warning);">80%</span>
+                            <span class="kpi-label" data-i18n="mod_haccp_kpi1">규제대응 절감</span>
+                        </div>
+                        <div class="kpi-item">
+                            <span class="kpi-value" style="color: var(--warning);">24/7</span>
+                            <span class="kpi-label" data-i18n="mod_haccp_kpi2">실시간 감시</span>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <span class="feature-tag" style="background: rgba(245,158,11,0.1); color: var(--warning); border-color: rgba(245,158,11,0.2);">CCP 모니터링</span>
+                        <span class="feature-tag" style="background: rgba(245,158,11,0.1); color: var(--warning); border-color: rgba(245,158,11,0.2);">자동 보고서</span>
+                    </div>
+                </div>
+
+                <!-- Security -->
+                <div class="module-card">
+                    <div class="card-icon icon-box"><i class="bi bi-shield-lock"></i></div>
+                    <h4 data-i18n="mod_sec_title">보안 모듈</h4>
+                    <p data-i18n="mod_sec_desc">온프레미스 환경 OT/IT 보안 통합관리. Purdue Model 기반 네트워크 분리. Zero Trust 아키텍처로 보안사고를 예방합니다.</p>
+                    <div class="module-kpi">
+                        <div class="kpi-item">
+                            <span class="kpi-value" style="color: var(--primary);">Zero</span>
+                            <span class="kpi-label" data-i18n="mod_sec_kpi1">보안사고 목표</span>
+                        </div>
+                        <div class="kpi-item">
+                            <span class="kpi-value" style="color: var(--primary);">100%</span>
+                            <span class="kpi-label" data-i18n="mod_sec_kpi2">규제 준수</span>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <span class="feature-tag">OT/IT 분리</span>
+                        <span class="feature-tag">mTLS</span>
+                        <span class="feature-tag">RBAC</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== Microservices ==================== -->
+    <section class="section py-5 bg-dim" id="services">
+        <div class="container py-5">
+            <div class="text-center mb-5 fade-in">
+                <span class="section-tag section-tag-accent" data-i18n="svc_tag">MICROSERVICES</span>
+                <h2 class="section-title" data-i18n="svc_title">9개 마이크로서비스</h2>
+                <p class="section-desc" data-i18n="svc_desc">모듈형 구성으로 식품제조 환경별 유연한 적용이 가능합니다. 총 143개 API 엔드포인트를 제공합니다.</p>
+            </div>
+
+            <div class="services-grid fade-in">
+                <!-- API Gateway -->
+                <div class="service-card service-card-gateway">
+                    <div class="svc-header">
+                        <div class="svc-icon"><i class="bi bi-hdd-network"></i></div>
+                        <div>
+                            <h5>API Gateway</h5>
+                            <span class="svc-tech">Node.js / Express</span>
+                        </div>
+                        <span class="svc-status status-done">LIVE</span>
+                    </div>
+                    <p class="small text-muted">JWT 인증, RBAC, Rate Limiting, Circuit Breaker</p>
+                    <div class="svc-port">Port: 8080</div>
+                </div>
+
+                <!-- Production -->
+                <div class="service-card">
+                    <div class="svc-header">
+                        <div class="svc-icon"><i class="bi bi-box-seam"></i></div>
+                        <div>
+                            <h5>Production</h5>
+                            <span class="svc-tech">Python / FastAPI</span>
+                        </div>
+                        <span class="svc-status status-done">27 APIs</span>
+                    </div>
+                    <p class="small text-muted" data-i18n="svc_prod_desc">생산계획, 작업지시, 배합비 관리, 상태머신</p>
+                    <div class="svc-port">Port: 8001</div>
+                </div>
+
+                <!-- Quality -->
+                <div class="service-card">
+                    <div class="svc-header">
+                        <div class="svc-icon" style="color: var(--companion);"><i class="bi bi-patch-check"></i></div>
+                        <div>
+                            <h5>Quality</h5>
+                            <span class="svc-tech">Python / FastAPI</span>
+                        </div>
+                        <span class="svc-status status-done">26 APIs</span>
+                    </div>
+                    <p class="small text-muted" data-i18n="svc_quality_desc">품질검사, 불량관리, 시정조치 워크플로우</p>
+                    <div class="svc-port">Port: 8002</div>
+                </div>
+
+                <!-- Inventory -->
+                <div class="service-card">
+                    <div class="svc-header">
+                        <div class="svc-icon" style="color: var(--success);"><i class="bi bi-archive"></i></div>
+                        <div>
+                            <h5>Inventory</h5>
+                            <span class="svc-tech">Python / FastAPI</span>
+                        </div>
+                        <span class="svc-status status-done">16 APIs</span>
+                    </div>
+                    <p class="small text-muted" data-i18n="svc_inv_desc">재고관리, 콜드체인 관리, 유통기한 자동계산</p>
+                    <div class="svc-port">Port: 8003</div>
+                </div>
+
+                <!-- Maintenance -->
+                <div class="service-card">
+                    <div class="svc-header">
+                        <div class="svc-icon" style="color: var(--warning);"><i class="bi bi-tools"></i></div>
+                        <div>
+                            <h5>Maintenance</h5>
+                            <span class="svc-tech">Python / FastAPI</span>
+                        </div>
+                        <span class="svc-status status-done">21 APIs</span>
+                    </div>
+                    <p class="small text-muted" data-i18n="svc_maint_desc">설비관리, CIP/SIP 세정관리, 예방보전</p>
+                    <div class="svc-port">Port: 8004</div>
+                </div>
+
+                <!-- HACCP -->
+                <div class="service-card">
+                    <div class="svc-header">
+                        <div class="svc-icon" style="color: #ef4444;"><i class="bi bi-shield-exclamation"></i></div>
+                        <div>
+                            <h5>HACCP</h5>
+                            <span class="svc-tech">Python / FastAPI</span>
+                        </div>
+                        <span class="svc-status status-done">16 APIs</span>
+                    </div>
+                    <p class="small text-muted" data-i18n="svc_haccp_desc">CCP 실시간 감시, 식약처 보고서 자동생성</p>
+                    <div class="svc-port">Port: 8005</div>
+                </div>
+
+                <!-- Traceability -->
+                <div class="service-card">
+                    <div class="svc-header">
+                        <div class="svc-icon" style="color: var(--accent);"><i class="bi bi-diagram-3"></i></div>
+                        <div>
+                            <h5>Traceability</h5>
+                            <span class="svc-tech">Python / FastAPI</span>
+                        </div>
+                        <span class="svc-status status-done">17 APIs</span>
+                    </div>
+                    <p class="small text-muted" data-i18n="svc_trace_desc">LOT 양방향 추적, 알레르겐 추적, 리콜 관리</p>
+                    <div class="svc-port">Port: 8006</div>
+                </div>
+
+                <!-- Notification -->
+                <div class="service-card">
+                    <div class="svc-header">
+                        <div class="svc-icon"><i class="bi bi-bell"></i></div>
+                        <div>
+                            <h5>Notification</h5>
+                            <span class="svc-tech">Node.js / Express</span>
+                        </div>
+                        <span class="svc-status status-done">7 APIs</span>
+                    </div>
+                    <p class="small text-muted" data-i18n="svc_noti_desc">CCP 이탈 즉시 알림, SMS/카카오톡 연동</p>
+                    <div class="svc-port">Port: 8007</div>
+                </div>
+
+                <!-- Data Ingestion -->
+                <div class="service-card">
+                    <div class="svc-header">
+                        <div class="svc-icon" style="color: var(--success);"><i class="bi bi-cpu"></i></div>
+                        <div>
+                            <h5>Data Ingestion</h5>
+                            <span class="svc-tech">Node.js / Express</span>
+                        </div>
+                        <span class="svc-status status-done">9 APIs</span>
+                    </div>
+                    <p class="small text-muted" data-i18n="svc_data_desc">센서 데이터 실시간 수집, Edge 통신</p>
+                    <div class="svc-port">Port: 8008</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== AI/ML Pipeline ==================== -->
+    <section class="section py-5 position-relative" id="ai-pipeline">
+        <div class="glow-bg glow-bg-companion"></div>
+        <div class="container py-5">
+            <div class="text-center mb-5 fade-in">
+                <span class="section-tag section-tag-companion" data-i18n="ai_tag">AI/ML PIPELINE</span>
+                <h2 class="section-title">
+                    <span class="text-gradient-companion" data-i18n="ai_title">6개 AI/ML 모델 & MLOps</span>
+                </h2>
+                <p class="section-desc" data-i18n="ai_desc">Edge AI 실시간 추론과 서버 고급 분석을 조합한 하이브리드 AI 전략을 채택합니다.</p>
+            </div>
+
+            <!-- AI Models Table -->
+            <div class="ai-models-wrapper fade-in">
+                <div class="ai-model-card">
+                    <div class="ai-model-icon" style="color: var(--companion);"><i class="bi bi-graph-up"></i></div>
+                    <h5 data-i18n="ai_m1_title">품질예측</h5>
+                    <div class="ai-model-algo">LSTM / XGBoost</div>
+                    <p class="small text-muted" data-i18n="ai_m1_desc">공정변수 시계열 분석 &rarr; 품질 이상 확률 예측</p>
+                    <span class="feature-tag feature-tag-pink">GPU 서버</span>
+                    <span class="feature-tag feature-tag-pink">주 1회 학습</span>
+                </div>
+
+                <div class="ai-model-card">
+                    <div class="ai-model-icon" style="color: var(--danger);"><i class="bi bi-exclamation-triangle"></i></div>
+                    <h5 data-i18n="ai_m2_title">이상감지</h5>
+                    <div class="ai-model-algo">Isolation Forest / Autoencoder</div>
+                    <p class="small text-muted" data-i18n="ai_m2_desc">센서 다변량 데이터 &rarr; 이상 점수 + 기여 변수</p>
+                    <span class="feature-tag">Edge + GPU</span>
+                    <span class="feature-tag">일 1회 학습</span>
+                </div>
+
+                <div class="ai-model-card">
+                    <div class="ai-model-icon" style="color: var(--accent);"><i class="bi bi-sliders"></i></div>
+                    <h5 data-i18n="ai_m3_title">공정최적화</h5>
+                    <div class="ai-model-algo">RL (PPO) / Bayesian Opt.</div>
+                    <p class="small text-muted" data-i18n="ai_m3_desc">공정 파라미터 + 품질 결과 &rarr; 최적 파라미터 세트</p>
+                    <span class="feature-tag feature-tag-purple">GPU 서버</span>
+                    <span class="feature-tag feature-tag-purple">월 1회 학습</span>
+                </div>
+
+                <div class="ai-model-card">
+                    <div class="ai-model-icon" style="color: var(--success);"><i class="bi bi-camera-video"></i></div>
+                    <h5 data-i18n="ai_m4_title">비전검사</h5>
+                    <div class="ai-model-algo">YOLOv8 / EfficientNet</div>
+                    <p class="small text-muted" data-i18n="ai_m4_desc">제품 이미지 &rarr; 불량 유형 + 좌표 + 신뢰도</p>
+                    <span class="feature-tag" style="background: rgba(16,185,129,0.1); color: var(--success); border-color: rgba(16,185,129,0.2);">Edge (TensorRT)</span>
+                </div>
+
+                <div class="ai-model-card">
+                    <div class="ai-model-icon" style="color: var(--primary);"><i class="bi bi-bar-chart-line"></i></div>
+                    <h5 data-i18n="ai_m5_title">수요예측</h5>
+                    <div class="ai-model-algo">Prophet / TFT</div>
+                    <p class="small text-muted" data-i18n="ai_m5_desc">판매 이력, 계절성, 프로모션 &rarr; 일별/주별 수요량</p>
+                    <span class="feature-tag">GPU 서버</span>
+                    <span class="feature-tag">주 1회 학습</span>
+                </div>
+
+                <div class="ai-model-card">
+                    <div class="ai-model-icon" style="color: var(--warning);"><i class="bi bi-clock-history"></i></div>
+                    <h5 data-i18n="ai_m6_title">설비 RUL</h5>
+                    <div class="ai-model-algo">LSTM / Survival Analysis</div>
+                    <p class="small text-muted" data-i18n="ai_m6_desc">진동, 온도, 전류 시계열 &rarr; 잔여수명 + 고장 확률</p>
+                    <span class="feature-tag" style="background: rgba(245,158,11,0.1); color: var(--warning); border-color: rgba(245,158,11,0.2);">GPU 서버</span>
+                </div>
+            </div>
+
+            <!-- Edge vs Server -->
+            <div class="row mt-5 g-4 fade-in">
+                <div class="col-lg-6">
+                    <div class="glass-card p-4 h-100">
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="icon-box-warning me-3"><i class="bi bi-gpu-card"></i></div>
+                            <div>
+                                <h4 class="mb-0" data-i18n="ai_edge_title">Edge AI (NVIDIA Jetson)</h4>
+                            </div>
+                        </div>
+                        <p class="text-muted" data-i18n="ai_edge_desc">실시간 추론 &lt; 100ms. IT 네트워크 단절 시에도 독립 운영 가능. CCP 이탈 즉시 알림 발생.</p>
+                        <div class="d-flex flex-wrap gap-2">
+                            <span class="feature-tag" style="background: rgba(245,158,11,0.1); color: var(--warning); border-color: rgba(245,158,11,0.2);">비전검사 &lt;50ms</span>
+                            <span class="feature-tag" style="background: rgba(245,158,11,0.1); color: var(--warning); border-color: rgba(245,158,11,0.2);">이상감지 &lt;10ms</span>
+                            <span class="feature-tag" style="background: rgba(245,158,11,0.1); color: var(--warning); border-color: rgba(245,158,11,0.2);">TensorRT / ONNX</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="glass-card p-4 h-100">
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="icon-box-accent me-3"><i class="bi bi-hdd-stack"></i></div>
+                            <div>
+                                <h4 class="mb-0" data-i18n="ai_server_title">GPU Server (NVIDIA L40S)</h4>
+                            </div>
+                        </div>
+                        <p class="text-muted" data-i18n="ai_server_desc">고급 분석 및 모델 학습. 배치 추론 &lt; 500ms. MLflow 자동 배포로 모델 버전을 관리합니다.</p>
+                        <div class="d-flex flex-wrap gap-2">
+                            <span class="feature-tag feature-tag-purple">품질예측</span>
+                            <span class="feature-tag feature-tag-purple">공정최적화</span>
+                            <span class="feature-tag feature-tag-purple">수요예측</span>
+                            <span class="feature-tag feature-tag-purple">PyTorch</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== Production Workflow ==================== -->
+    <section class="section py-5 bg-dim" id="workflow">
+        <div class="container py-5">
+            <div class="text-center mb-5 fade-in">
+                <span class="section-tag section-tag-primary" data-i18n="wf_tag">PRODUCTION WORKFLOW</span>
+                <h2 class="section-title" data-i18n="wf_title">전체 생산 프로세스 워크플로우</h2>
+                <p class="section-desc" data-i18n="wf_desc">수요예측부터 사후관리까지 8단계 전 과정에 AI가 통합된 지능형 생산 프로세스입니다.</p>
+            </div>
+
+            <div class="pipeline-wrapper">
+                <div class="pipeline-steps fade-in">
+                    <div class="pipeline-step">
+                        <div class="step-num">1</div>
+                        <div class="step-content">
+                            <h5 data-i18n="wf_s1">수요예측 / 생산계획</h5>
+                            <p data-i18n="wf_s1_desc">AI 수요예측 모델 &rarr; 생산계획 수립 &rarr; 원자재 자동 발주</p>
+                        </div>
+                    </div>
+                    <div class="pipeline-step">
+                        <div class="step-num">2</div>
+                        <div class="step-content">
+                            <h5 data-i18n="wf_s2">원료 입고 / 검수</h5>
+                            <p data-i18n="wf_s2_desc">원료 LOT 등록 &rarr; 품질검사 &rarr; 알레르겐 확인 &rarr; 콜드체인 모니터링 시작</p>
+                        </div>
+                    </div>
+                    <div class="pipeline-step">
+                        <div class="step-num">3</div>
+                        <div class="step-content">
+                            <h5 data-i18n="wf_s3">배합 / 전처리</h5>
+                            <p data-i18n="wf_s3_desc">배합비 자동 계산 &rarr; AI 원료 편차 보정 &rarr; CCP 모니터링 (온도/pH)</p>
+                        </div>
+                    </div>
+                    <div class="pipeline-step">
+                        <div class="step-num">4</div>
+                        <div class="step-content">
+                            <h5 data-i18n="wf_s4">가공 / 조리</h5>
+                            <p data-i18n="wf_s4_desc">AI 공정 파라미터 최적화 &rarr; 실시간 품질예측 &rarr; 예지보전으로 비계획 정지 방지</p>
+                        </div>
+                    </div>
+                    <div class="pipeline-step">
+                        <div class="step-num">5</div>
+                        <div class="step-content">
+                            <h5 data-i18n="wf_s5">품질검사</h5>
+                            <p data-i18n="wf_s5_desc">비전 AI 외관검사 &rarr; 자동 불량 분류 &rarr; 합격/불합격 판정</p>
+                        </div>
+                    </div>
+                    <div class="pipeline-step">
+                        <div class="step-num">6</div>
+                        <div class="step-content">
+                            <h5 data-i18n="wf_s6">포장 / 라벨링</h5>
+                            <p data-i18n="wf_s6_desc">중량 검사 &rarr; 라벨 검증(알레르겐, 유통기한) &rarr; 금속검출 &rarr; LOT 추적 완료</p>
+                        </div>
+                    </div>
+                    <div class="pipeline-step">
+                        <div class="step-num">7</div>
+                        <div class="step-content">
+                            <h5 data-i18n="wf_s7">출하 / 유통</h5>
+                            <p data-i18n="wf_s7_desc">콜드체인 최종 확인 &rarr; 출하 승인 &rarr; LOT 정방향 추적 활성화</p>
+                        </div>
+                    </div>
+                    <div class="pipeline-step">
+                        <div class="step-num">8</div>
+                        <div class="step-content">
+                            <h5 data-i18n="wf_s8">사후관리</h5>
+                            <p data-i18n="wf_s8_desc">HACCP 보고서 자동 생성 &rarr; 식약처 보고 &rarr; AI 모델 재학습</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== Food Manufacturing Domain ==================== -->
+    <section class="section py-5" id="domain">
+        <div class="container py-5">
+            <div class="text-center mb-5 fade-in">
+                <span class="section-tag section-tag-companion" data-i18n="domain_tag">FOOD DOMAIN</span>
+                <h2 class="section-title" data-i18n="domain_title">식품제조 도메인 모델</h2>
+                <p class="section-desc" data-i18n="domain_desc">HACCP, 콜드체인, 알레르겐, CIP/SIP 등 식품제조 고유 도메인을 완벽 지원합니다.</p>
+            </div>
+
+            <div class="domain-grid fade-in">
+                <div class="domain-card">
+                    <div class="domain-icon" style="color: var(--danger);"><i class="bi bi-shield-exclamation"></i></div>
+                    <h5>HACCP / CCP</h5>
+                    <p class="small text-muted" data-i18n="domain_haccp">위해요소 분석, 중요관리점 실시간 모니터링, 시정조치 워크플로우, 보고서 자동생성</p>
+                </div>
+                <div class="domain-card">
+                    <div class="domain-icon" style="color: var(--primary);"><i class="bi bi-snow2"></i></div>
+                    <h5 data-i18n="domain_cold_title">콜드체인</h5>
+                    <p class="small text-muted" data-i18n="domain_cold">존별 온/습도 실시간 모니터링, 이탈 감지 및 즉시 알림, 콜드체인 인증서 자동 발급</p>
+                </div>
+                <div class="domain-card">
+                    <div class="domain-icon" style="color: var(--warning);"><i class="bi bi-exclamation-diamond"></i></div>
+                    <h5 data-i18n="domain_allergen_title">알레르겐 관리</h5>
+                    <p class="small text-muted" data-i18n="domain_allergen">식품위생법 22종 알레르겐 관리, 교차오염 방지 세정 절차, 라인별 클리어링 검증</p>
+                </div>
+                <div class="domain-card">
+                    <div class="domain-icon" style="color: var(--success);"><i class="bi bi-droplet-half"></i></div>
+                    <h5>CIP / SIP</h5>
+                    <p class="small text-muted" data-i18n="domain_cip">정치세정/정치살균 프로세스 관리, 미생물 검증, 세정 밸리데이션 기록</p>
+                </div>
+                <div class="domain-card">
+                    <div class="domain-icon" style="color: var(--accent);"><i class="bi bi-arrow-left-right"></i></div>
+                    <h5 data-i18n="domain_lot_title">LOT 이력추적</h5>
+                    <p class="small text-muted" data-i18n="domain_lot">원료-제품 양방향 LOT 추적, 리콜 대응 체계, 식약처 보고 자동화</p>
+                </div>
+                <div class="domain-card">
+                    <div class="domain-icon" style="color: var(--companion);"><i class="bi bi-calendar2-range"></i></div>
+                    <h5 data-i18n="domain_shelf_title">유통기한 관리</h5>
+                    <p class="small text-muted" data-i18n="domain_shelf">Arrhenius 모델 기반 유통기한 예측, 가속시험 데이터 관리, 품질 예측</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== Security Architecture ==================== -->
+    <section class="section py-5 bg-dim position-relative overflow-hidden" id="security">
+        <div class="glow-bg"></div>
+        <div class="container py-5">
+            <div class="text-center mb-5 fade-in">
+                <span class="section-tag section-tag-primary" data-i18n="sec_tag">SECURITY</span>
+                <h2 class="section-title" data-i18n="sec_title">Purdue Model 기반 보안 아키텍처</h2>
+                <p class="section-desc" data-i18n="sec_desc">A3 Security의 보안 역량을 바탕으로 OT/IT 분리, Zero Trust 아키텍처를 구현합니다.</p>
+            </div>
+
+            <div class="security-badges mb-5 fade-in">
+                <span class="security-badge badge-privacy">Zero Trust</span>
+                <span class="security-badge badge-encrypt">AES-256 암호화</span>
+                <span class="security-badge badge-tls">TLS 1.3 / mTLS</span>
+                <span class="security-badge badge-local">OT/IT 분리</span>
+                <span class="security-badge badge-privacy">RBAC + ABAC</span>
+                <span class="security-badge badge-encrypt">HashiCorp Vault</span>
+            </div>
+
+            <!-- Purdue Model -->
+            <div class="row justify-content-center fade-in">
+                <div class="col-lg-10">
+                    <div class="glass-card p-4">
+                        <h5 class="text-center mb-4" data-i18n="sec_purdue_title">Purdue Model 네트워크 계층</h5>
+                        <div class="d-flex flex-column gap-3">
+                            <div class="purdue-level" style="border-left-color: var(--danger);">
+                                <span class="purdue-label" style="color: var(--danger);">Level 5</span>
+                                <span data-i18n="sec_l5">Enterprise Network (인터넷/외부) &mdash; Enterprise Firewall + IDS/IPS</span>
+                            </div>
+                            <div class="purdue-level" style="border-left-color: var(--primary);">
+                                <span class="purdue-label" style="color: var(--primary);">Level 4</span>
+                                <span data-i18n="sec_l4">IT Zone &mdash; MES 서버, AI 서버, DB 서버, Grafana, Vault, SIEM, Harbor</span>
+                            </div>
+                            <div class="purdue-level" style="border-left-color: var(--warning);">
+                                <span class="purdue-label" style="color: var(--warning);">Level 3</span>
+                                <span data-i18n="sec_l3">DMZ &mdash; Edge Gateway, Protocol Converter, Data Diode (단방향 전송)</span>
+                            </div>
+                            <div class="purdue-level" style="border-left-color: var(--success);">
+                                <span class="purdue-label" style="color: var(--success);">Level 2</span>
+                                <span data-i18n="sec_l2">OT Zone &mdash; SCADA, HMI</span>
+                            </div>
+                            <div class="purdue-level" style="border-left-color: var(--text-muted);">
+                                <span class="purdue-label">Level 1</span>
+                                <span data-i18n="sec_l1">OT Zone &mdash; PLC, RTU</span>
+                            </div>
+                            <div class="purdue-level" style="border-left-color: var(--text-muted);">
+                                <span class="purdue-label">Level 0</span>
+                                <span data-i18n="sec_l0">OT Zone &mdash; 온도센서, 진동센서, 비전카메라, 금속검출기</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== ROI Analysis ==================== -->
+    <section class="section py-5" id="roi">
+        <div class="container py-5">
+            <div class="text-center mb-5 fade-in">
+                <span class="section-tag section-tag-success" data-i18n="roi_tag">ROI ANALYSIS</span>
+                <h2 class="section-title" data-i18n="roi_title">구축 전후 종합 분석</h2>
+                <p class="section-desc" data-i18n="roi_desc">AIMES 도입으로 연간 2.15억~5.8억원의 비용 절감 효과를 달성합니다.</p>
+            </div>
+
+            <!-- Before/After Comparison -->
+            <div class="roi-table-wrapper fade-in">
+                <table class="roi-table">
+                    <thead>
+                        <tr>
+                            <th data-i18n="roi_th1">지표</th>
+                            <th data-i18n="roi_th2">구축 전 (As-Is)</th>
+                            <th data-i18n="roi_th3">구축 후 (To-Be)</th>
+                            <th data-i18n="roi_th4">개선율</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>OEE (설비종합효율)</td>
+                            <td>60~75%</td>
+                            <td>82~92%</td>
+                            <td class="roi-improve">+15~25%p</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="roi_defect">불량률</td>
+                            <td>3~10%</td>
+                            <td>1~4%</td>
+                            <td class="roi-improve">-40~60%</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="roi_downtime">비계획 정지시간</td>
+                            <td data-i18n="roi_dt_before">월 8~20시간</td>
+                            <td data-i18n="roi_dt_after">월 2~8시간</td>
+                            <td class="roi-improve">-50~70%</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="roi_yield">원료 수율</td>
+                            <td>85~92%</td>
+                            <td>90~97%</td>
+                            <td class="roi-improve">+3~8%p</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="roi_energy">에너지 비용</td>
+                            <td data-i18n="roi_en_before">100% (기준)</td>
+                            <td>80~90%</td>
+                            <td class="roi-improve">-10~20%</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="roi_haccp">HACCP 규제대응 시간</td>
+                            <td data-i18n="roi_hc_before">월 40~80시간</td>
+                            <td data-i18n="roi_hc_after">월 8~16시간</td>
+                            <td class="roi-improve">-70~80%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- ROI Summary Cards -->
+            <div class="row g-4 mt-5 fade-in">
+                <div class="col-md-3">
+                    <div class="glass-card p-4 text-center">
+                        <div class="roi-big-number" style="color: var(--primary);">7~10.7</div>
+                        <div class="roi-unit" data-i18n="roi_invest">억원 투자비</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="glass-card p-4 text-center">
+                        <div class="roi-big-number" style="color: var(--success);">2.15~5.8</div>
+                        <div class="roi-unit" data-i18n="roi_save">억원/년 절감</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="glass-card p-4 text-center">
+                        <div class="roi-big-number" style="color: var(--accent);">1.5~3</div>
+                        <div class="roi-unit" data-i18n="roi_payback">년 투자회수기간</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="glass-card p-4 text-center">
+                        <div class="roi-big-number" style="color: var(--companion);">400~800%</div>
+                        <div class="roi-unit" data-i18n="roi_5yr">5년 누적 ROI</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== Implementation Roadmap ==================== -->
+    <section class="section py-5 bg-dim" id="roadmap">
+        <div class="container py-5">
+            <div class="text-center mb-5 fade-in">
+                <span class="section-tag section-tag-accent" data-i18n="rm_tag">ROADMAP</span>
+                <h2 class="section-title" data-i18n="rm_title">구현 로드맵</h2>
+                <p class="section-desc" data-i18n="rm_desc">Agile + 도메인 전문성 결합 하이브리드 방법론으로 12~18개월 프로토타입 완성을 목표로 합니다.</p>
+            </div>
+
+            <div class="roadmap-timeline fade-in">
+                <div class="roadmap-item">
+                    <div class="rm-phase" style="background: var(--primary);">Phase 0</div>
+                    <div class="rm-content">
+                        <h5 data-i18n="rm_p0_title">기획 및 준비</h5>
+                        <span class="rm-duration" data-i18n="rm_p0_dur">1~2개월</span>
+                        <p class="small text-muted" data-i18n="rm_p0_desc">시장조사, 파일럿 기업 선정, As-Is 분석, ROI 목표 수립</p>
+                    </div>
+                </div>
+                <div class="roadmap-item">
+                    <div class="rm-phase" style="background: var(--accent);">Phase 1</div>
+                    <div class="rm-content">
+                        <h5 data-i18n="rm_p1_title">프로토타입 설계</h5>
+                        <span class="rm-duration" data-i18n="rm_p1_dur">2~3개월</span>
+                        <p class="small text-muted" data-i18n="rm_p1_desc">시스템 아키텍처 설계, AI 모델 선정, IoT/센서 설치 계획, 보안 아키텍처 설계</p>
+                    </div>
+                </div>
+                <div class="roadmap-item">
+                    <div class="rm-phase" style="background: var(--companion);">Phase 2</div>
+                    <div class="rm-content">
+                        <h5 data-i18n="rm_p2_title">프로토타입 개발</h5>
+                        <span class="rm-duration" data-i18n="rm_p2_dur">4~6개월</span>
+                        <p class="small text-muted" data-i18n="rm_p2_desc">AIMES Core 개발, IoT 인프라 구축, AI 모델 개발/학습, 대시보드 개발, 파일럿 라인 적용</p>
+                    </div>
+                </div>
+                <div class="roadmap-item">
+                    <div class="rm-phase" style="background: var(--success);">Phase 3</div>
+                    <div class="rm-content">
+                        <h5 data-i18n="rm_p3_title">실증 및 검증</h5>
+                        <span class="rm-duration" data-i18n="rm_p3_dur">3~4개월</span>
+                        <p class="small text-muted" data-i18n="rm_p3_desc">파일럿 라인 24/7 실증 운영, AI 모델 튜닝, ROI 측정 및 검증</p>
+                    </div>
+                </div>
+                <div class="roadmap-item">
+                    <div class="rm-phase" style="background: var(--warning);">Phase 4</div>
+                    <div class="rm-content">
+                        <h5 data-i18n="rm_p4_title">상용화 및 확산</h5>
+                        <span class="rm-duration" data-i18n="rm_p4_dur">6개월+</span>
+                        <p class="small text-muted" data-i18n="rm_p4_desc">상용 버전 출시, 추가 고객사 확보, 모듈 확장, 정부사업 연계</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== Tech Stack ==================== -->
+    <section class="section py-5" id="techstack">
+        <div class="container py-5">
+            <div class="text-center mb-5 fade-in">
+                <span class="section-tag section-tag-primary">TECH STACK</span>
+                <h2 class="section-title">Technology Stack</h2>
+            </div>
+            <div class="tech-grid fade-in">
+                <div class="tech-item"><i class="bi bi-filetype-py text-primary-custom"></i>Python 3.12</div>
+                <div class="tech-item"><i class="bi bi-lightning text-primary-custom"></i>FastAPI</div>
+                <div class="tech-item"><i class="bi bi-braces text-accent"></i>React 18</div>
+                <div class="tech-item"><i class="bi bi-filetype-ts text-primary-custom"></i>TypeScript</div>
+                <div class="tech-item"><i class="bi bi-wind text-primary-custom"></i>Tailwind CSS</div>
+                <div class="tech-item"><i class="bi bi-database text-accent"></i>PostgreSQL 16</div>
+                <div class="tech-item"><i class="bi bi-clock-history text-companion"></i>TimescaleDB</div>
+                <div class="tech-item"><i class="bi bi-lightning-charge text-danger"></i>Redis 7</div>
+                <div class="tech-item"><i class="bi bi-broadcast text-success-custom"></i>Apache Kafka</div>
+                <div class="tech-item"><i class="bi bi-box-seam text-primary-custom"></i>Docker / K3s</div>
+                <div class="tech-item"><i class="bi bi-gpu-card text-warning"></i>PyTorch</div>
+                <div class="tech-item"><i class="bi bi-camera-video text-success-custom"></i>YOLOv8</div>
+                <div class="tech-item"><i class="bi bi-graph-up text-accent"></i>MLflow</div>
+                <div class="tech-item"><i class="bi bi-speedometer text-success-custom"></i>Grafana</div>
+                <div class="tech-item"><i class="bi bi-hdd-rack text-warning"></i>NVIDIA Jetson</div>
+                <div class="tech-item"><i class="bi bi-shield-lock text-primary-custom"></i>Vault</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== Footer ==================== -->
+    <footer class="footer py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5><span style="color: var(--primary);">AI</span>MES</h5>
+                    <p class="small text-muted mt-2">
+                        AI-based Manufacturing Execution System
+                    </p>
+                    <p class="small text-muted" data-i18n="footer_sub">
+                        식품제조업 특화 AI 기반 제조실행시스템
+                    </p>
+                    <p class="small text-muted mt-2" data-i18n="footer_by">
+                        Designed by Brian Lee / A3-AI Working Group
+                    </p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h6 class="text-muted mb-3" data-i18n="footer_links">바로가기</h6>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><a href="#architecture" data-i18n="footer_arch">아키텍처</a></li>
+                        <li class="mb-2"><a href="#modules" data-i18n="footer_modules">핵심 모듈</a></li>
+                        <li class="mb-2"><a href="#services" data-i18n="footer_services">마이크로서비스</a></li>
+                        <li class="mb-2"><a href="#ai-pipeline" data-i18n="footer_ai">AI/ML 파이프라인</a></li>
+                        <li class="mb-2"><a href="#roi" data-i18n="footer_roi">ROI 분석</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 text-md-end">
+                    <h6 class="text-muted mb-3" data-i18n="footer_tech">기술 스택</h6>
+                    <p class="small text-muted">Python 3.12 / FastAPI / React 18</p>
+                    <p class="small text-muted">PostgreSQL / TimescaleDB / Redis / Kafka</p>
+                    <p class="small text-muted">PyTorch / YOLOv8 / MLflow / Docker / K3s</p>
+                    <p class="small text-muted mt-4">&copy; 2026 A3 Security Co., Ltd. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
