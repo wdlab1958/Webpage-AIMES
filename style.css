@@ -18,6 +18,11 @@
 
 * { box-sizing: border-box; }
 
+/* Override Bootstrap .text-muted for dark theme */
+.text-muted {
+    color: var(--text-muted) !important;
+}
+
 body {
     background-color: var(--bg-dark);
     color: var(--text-main);
@@ -935,6 +940,95 @@ h1, h2, h3, h4, h5, .navbar-brand {
 /* Fade-in Animation — content always visible, animation is enhancement only */
 .fade-in {
     transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* Card Expand/Detail Panels */
+.module-card,
+.service-card,
+.ai-model-card,
+.domain-card {
+    cursor: pointer;
+    position: relative;
+}
+
+.module-card.expanded,
+.service-card.expanded,
+.ai-model-card.expanded,
+.domain-card.expanded {
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 20px rgba(14, 165, 233, 0.08);
+}
+
+.card-chevron {
+    position: absolute;
+    top: 1.2rem;
+    right: 1.2rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    transition: transform 0.3s ease;
+    opacity: 0.5;
+}
+
+.expanded .card-chevron {
+    transform: rotate(180deg);
+    opacity: 0.8;
+}
+
+.card-detail {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+}
+
+.card-detail.open {
+    max-height: 800px;
+    padding-top: 1rem;
+    margin-top: 1rem;
+    border-top: 1px solid var(--border-glass);
+}
+
+.card-detail .detail-subtitle {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 0.4rem;
+    margin-top: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.card-detail .detail-subtitle:first-child {
+    margin-top: 0;
+}
+
+.card-detail ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 0.5rem 0;
+}
+
+.card-detail ul li {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    padding: 0.2rem 0;
+    padding-left: 1rem;
+    position: relative;
+    line-height: 1.5;
+}
+
+.card-detail ul li::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.card-detail .detail-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    margin-top: 0.5rem;
 }
 
 /* Responsive */

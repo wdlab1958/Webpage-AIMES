@@ -398,6 +398,260 @@ const translations = {
         footer_ai: 'AI/ML Pipeline',
         footer_roi: 'ROI Analysis',
         footer_tech: 'Tech Stack',
+
+        // ===== Card Detail Panels =====
+
+        // Module: AI Quality
+        mod_quality_d1: 'Key Features',
+        mod_quality_d1_1: 'Process variable time-series analysis (30+ variables: temp, pressure, pH, humidity)',
+        mod_quality_d1_2: 'SPC control chart auto-generation with anomaly pattern detection (Nelson Rules)',
+        mod_quality_d1_3: 'Real-time quality deviation probability prediction with early alerts',
+        mod_quality_d1_4: 'Automatic root cause analysis (Top-5 contributing variables)',
+        mod_quality_d2: 'Technical Details',
+        mod_quality_d2_1: 'LSTM time-series prediction + XGBoost ensemble model',
+        mod_quality_d2_2: 'Isolation Forest / Autoencoder outlier detection',
+        mod_quality_d2_3: 'SHAP-based prediction explainability',
+
+        // Module: AI Process Optimization
+        mod_process_d1: 'Key Features',
+        mod_process_d1_1: 'Automatic recipe optimization (real-time raw material variance correction)',
+        mod_process_d1_2: 'Sterilization temperature/time profile optimization',
+        mod_process_d1_3: 'Energy minimization scheduling (peak-time avoidance)',
+        mod_process_d1_4: 'Digital twin simulation (What-if analysis)',
+        mod_process_d2: 'Technical Details',
+        mod_process_d2_1: 'RL PPO agent-based process parameter exploration',
+        mod_process_d2_2: 'Bayesian Optimization for fast convergence',
+        mod_process_d2_3: 'Process simulator (Python SimPy) integration',
+
+        // Module: AI Predictive Maintenance
+        mod_maint_d1: 'Key Features',
+        mod_maint_d1_1: 'Real-time vibration/temperature/current sensor data collection & analysis',
+        mod_maint_d1_2: 'Equipment RUL prediction and failure probability calculation',
+        mod_maint_d1_3: 'Automatic optimal maintenance schedule generation (cost optimization)',
+        mod_maint_d1_4: 'CIP/SIP cleaning cycle optimization and validation',
+        mod_maint_d2: 'Technical Details',
+        mod_maint_d2_1: 'LSTM time-series prediction + Weibull Survival Analysis',
+        mod_maint_d2_2: 'FFT frequency analysis for bearing/motor anomaly detection',
+        mod_maint_d2_3: 'Edge AI real-time inference (NVIDIA Jetson)',
+
+        // Module: AI Vision Inspection
+        mod_vision_d1: 'Key Features',
+        mod_vision_d1_1: 'Automatic defect detection (color variance, shape anomaly, foreign objects)',
+        mod_vision_d1_2: 'Packaging inspection (seal, fill level, damage)',
+        mod_vision_d1_3: 'Label OCR verification (allergen labeling, expiry date, barcode)',
+        mod_vision_d1_4: 'Automatic defect image archival and classification (MinIO S3)',
+        mod_vision_d2: 'Technical Details',
+        mod_vision_d2_1: 'YOLOv8 object detection + EfficientNet classification model',
+        mod_vision_d2_2: 'Edge AI inference < 50ms (NVIDIA Jetson + TensorRT FP16)',
+        mod_vision_d2_3: 'Active Learning for continuous model improvement',
+
+        // Module: HACCP Automation
+        mod_haccp_d1: 'Key Features',
+        mod_haccp_d1_1: 'CCP (Critical Control Point) real-time monitoring & auto-recording',
+        mod_haccp_d1_2: '3-level auto-alert on limit deviation (Caution→Warning→Critical)',
+        mod_haccp_d1_3: 'Corrective action workflow automation (assignee, deadline management)',
+        mod_haccp_d1_4: 'MFDS HACCP report auto-generation (PDF/Excel)',
+        mod_haccp_d2: 'Monitoring Items',
+        mod_haccp_d2_1: 'Sterilization temp/time, cooling temp, metal detection',
+        mod_haccp_d2_2: 'pH, water activity (Aw), microbial limits',
+        mod_haccp_d2_3: 'CIP/SIP cleaning temp/concentration/time verification',
+
+        // Module: Security
+        mod_sec_d1: 'Key Features',
+        mod_sec_d1_1: 'Purdue Model OT/IT network separation (DMZ, Data Diode)',
+        mod_sec_d1_2: 'Zero Trust: mTLS mutual authentication, service mesh security',
+        mod_sec_d1_3: 'RBAC + ABAC hybrid access control',
+        mod_sec_d1_4: 'Security event integrated monitoring (SIEM integration)',
+        mod_sec_d2: 'Security Framework',
+        mod_sec_d2_1: 'AES-256 data encryption (at rest / in transit)',
+        mod_sec_d2_2: 'HashiCorp Vault secret management',
+        mod_sec_d2_3: 'Container image signing and scanning (Harbor + Trivy)',
+
+        // Service: API Gateway
+        svc_gw_d1: 'Key Features',
+        svc_gw_d1_1: 'JWT-based authentication/authorization + automatic token refresh',
+        svc_gw_d1_2: 'RBAC: Admin / Operator / Quality Manager / Maintenance Engineer',
+        svc_gw_d1_3: 'Rate Limiting (per IP/user) + Circuit Breaker pattern',
+        svc_gw_d1_4: 'Request logging, distributed tracing (Correlation ID), WAF rules',
+        svc_gw_d2: 'Key Endpoints',
+
+        // Service: Production
+        svc_prod_d1: 'Key Features',
+        svc_prod_d1_1: 'Production plan CRUD (daily/weekly/monthly)',
+        svc_prod_d1_2: 'Work order creation and state machine (Pending→Running→Done→Verified)',
+        svc_prod_d1_3: 'Recipe management with version history tracking',
+        svc_prod_d1_4: 'Production performance auto-aggregation and KPI dashboard',
+        svc_prod_d2: 'Key Endpoints',
+
+        // Service: Quality
+        svc_quality_d1: 'Key Features',
+        svc_quality_d1_1: 'Incoming/in-process/outgoing quality inspection recording & pass/fail',
+        svc_quality_d1_2: 'SPC control chart auto-generation (X-bar, R, p, c chart)',
+        svc_quality_d1_3: 'Defect classification by type and Pareto analysis',
+        svc_quality_d1_4: 'CAPA workflow: Issue→Investigate→Correct→Verify→Close',
+        svc_quality_d2: 'Key Endpoints',
+
+        // Service: Inventory
+        svc_inv_d1: 'Key Features',
+        svc_inv_d1_1: 'Raw/semi-finished/finished goods real-time tracking (LOT-based)',
+        svc_inv_d1_2: 'Cold chain zone temperature/humidity monitoring with deviation alerts',
+        svc_inv_d1_3: 'Automatic expiry date calculation (manufacturing date + storage conditions)',
+        svc_inv_d1_4: 'FIFO/FEFO shipping strategy auto-application',
+        svc_inv_d2: 'Key Endpoints',
+
+        // Service: Maintenance
+        svc_maint_d1: 'Key Features',
+        svc_maint_d1_1: 'Equipment registry management (asset registration, specs, history)',
+        svc_maint_d1_2: 'CIP/SIP cleaning process management and validation',
+        svc_maint_d1_3: 'Preventive Maintenance (PM) schedule auto-generation',
+        svc_maint_d1_4: 'Maintenance work order management (Create→Assign→Complete→Verify)',
+        svc_maint_d2: 'Key Endpoints',
+
+        // Service: HACCP
+        svc_haccp_d1: 'Key Features',
+        svc_haccp_d1_1: 'HACCP plan registration and CCP point configuration',
+        svc_haccp_d1_2: 'CCP real-time monitoring (automatic critical limit evaluation)',
+        svc_haccp_d1_3: 'Auto-trigger corrective action workflow on deviation',
+        svc_haccp_d1_4: 'MFDS-compliant HACCP report auto-generation (PDF)',
+        svc_haccp_d2: 'Key Endpoints',
+
+        // Service: Traceability
+        svc_trace_d1: 'Key Features',
+        svc_trace_d1_1: 'Material→Product forward / Product→Material backward LOT tracking',
+        svc_trace_d1_2: 'Allergen cross-contamination tracking (line clearing history)',
+        svc_trace_d1_3: 'Recall simulation and auto impact scope calculation',
+        svc_trace_d1_4: 'MFDS traceability report automation',
+        svc_trace_d2: 'Key Endpoints',
+
+        // Service: Notification
+        svc_noti_d1: 'Key Features',
+        svc_noti_d1_1: 'Instant CCP deviation alerts (WebSocket + Push)',
+        svc_noti_d1_2: 'SMS / KakaoTalk notification integration',
+        svc_noti_d1_3: 'Notification priority and escalation rules management',
+        svc_noti_d1_4: 'Notification history and acknowledgement (ACK) management',
+        svc_noti_d2: 'Key Endpoints',
+
+        // Service: Data Ingestion
+        svc_data_d1: 'Key Features',
+        svc_data_d1_1: 'Edge Gateway → Kafka real-time sensor data collection',
+        svc_data_d1_2: 'Protocol conversion (OPC-UA, Modbus, MQTT → Kafka)',
+        svc_data_d1_3: 'Data validation and anomalous value filtering',
+        svc_data_d1_4: 'Local buffering on network disconnection with auto-resend',
+        svc_data_d2: 'Key Endpoints',
+
+        // AI Model: Quality Prediction
+        ai_m1_d1: 'Input/Output Data',
+        ai_m1_d1_1: 'Input: 30+ process variable time-series (temp, pressure, pH, humidity)',
+        ai_m1_d1_2: 'Output: Quality anomaly probability (0~1), Top-5 contributing variables, confidence interval',
+        ai_m1_d2: 'Model Specs',
+        ai_m1_d2_1: 'LSTM 2-layer (hidden 128) + XGBoost ensemble',
+        ai_m1_d2_2: 'Training: Weekly / Inference latency: < 200ms',
+        ai_m1_d2_3: 'Target: F1-Score ≥ 0.92, AUC ≥ 0.95',
+
+        // AI Model: Anomaly Detection
+        ai_m2_d1: 'Input/Output Data',
+        ai_m2_d1_1: 'Input: Multi-variate sensor time-series (vibration, temp, current, pressure)',
+        ai_m2_d1_2: 'Output: Anomaly score (0~1), contributing variable ranking, anomaly type',
+        ai_m2_d2: 'Model Specs',
+        ai_m2_d2_1: 'Isolation Forest (unsupervised) + LSTM Autoencoder (semi-supervised)',
+        ai_m2_d2_2: 'Training: Daily / Edge inference: < 10ms',
+        ai_m2_d2_3: 'Target: Precision ≥ 0.90, Recall ≥ 0.95',
+
+        // AI Model: Process Optimization
+        ai_m3_d1: 'Input/Output Data',
+        ai_m3_d1_1: 'Input: Process parameters + raw material properties + environmental conditions',
+        ai_m3_d1_2: 'Output: Optimal parameter set, expected yield, energy savings estimate',
+        ai_m3_d2: 'Model Specs',
+        ai_m3_d2_1: 'PPO Agent (Actor-Critic) + Bayesian Optimization',
+        ai_m3_d2_2: 'Training: Monthly / Inference: < 500ms',
+        ai_m3_d2_3: 'Target: Yield +5~10%, Energy -15%',
+
+        // AI Model: Vision Inspection
+        ai_m4_d1: 'Input/Output Data',
+        ai_m4_d1_1: 'Input: Industrial camera images (640x640, 30fps)',
+        ai_m4_d1_2: 'Output: Defect type, bounding box coordinates, confidence score',
+        ai_m4_d2: 'Model Specs',
+        ai_m4_d2_1: 'YOLOv8m object detection + EfficientNet-B3 classification',
+        ai_m4_d2_2: 'Edge inference: < 50ms (NVIDIA Jetson + TensorRT FP16)',
+        ai_m4_d2_3: 'Target: mAP@0.5 ≥ 0.95, Classification accuracy ≥ 0.97',
+
+        // AI Model: Demand Forecasting
+        ai_m5_d1: 'Input/Output Data',
+        ai_m5_d1_1: 'Input: Sales history, seasonality, promotions, weather, holidays',
+        ai_m5_d1_2: 'Output: Daily/weekly SKU-level demand, confidence intervals (80/95%)',
+        ai_m5_d2: 'Model Specs',
+        ai_m5_d2_1: 'Prophet (seasonality) + Temporal Fusion Transformer (multi-factor)',
+        ai_m5_d2_2: 'Training: Weekly / Inference: < 1s (batch)',
+        ai_m5_d2_3: 'Target: MAPE ≤ 15%, RMSE minimization',
+
+        // AI Model: Equipment RUL
+        ai_m6_d1: 'Input/Output Data',
+        ai_m6_d1_1: 'Input: Vibration, temperature, current, pressure time-series (per equipment)',
+        ai_m6_d1_2: 'Output: Remaining Useful Life (days), failure probability, maintenance recommendation',
+        ai_m6_d2: 'Model Specs',
+        ai_m6_d2_1: 'LSTM time-series + Weibull/Cox Survival Analysis',
+        ai_m6_d2_2: 'Training: Monthly / Inference: < 300ms',
+        ai_m6_d2_3: 'Target: RUL prediction error ≤ ±20%, C-Index ≥ 0.85',
+
+        // Domain: HACCP/CCP
+        domain_haccp_d1: 'Detailed Features',
+        domain_haccp_d1_1: 'HACCP plan automation based on 7 principles, 12 procedures',
+        domain_haccp_d1_2: 'CCP critical limit (CL) setup and real-time monitoring',
+        domain_haccp_d1_3: '3-level escalation on deviation (Caution→Warning→Critical)',
+        domain_haccp_d1_4: 'MFDS HACCP certification report auto-generation',
+        domain_haccp_d2: 'Regulatory Compliance',
+        domain_haccp_d2_1: 'Food Sanitation Act, Livestock Products Sanitary Control Act',
+        domain_haccp_d2_2: 'Codex Alimentarius international standards',
+
+        // Domain: Cold Chain
+        domain_cold_d1: 'Monitoring Items',
+        domain_cold_d1_1: 'Zone-level temperature/humidity real-time collection (1s~1min intervals)',
+        domain_cold_d1_2: 'Refrigeration (0~10°C), Freezing (below -18°C) auto-evaluation',
+        domain_cold_d1_3: 'Door open detection, defrost cycle monitoring',
+        domain_cold_d2: 'Key Features',
+        domain_cold_d2_1: 'Instant SMS/Push alert on deviation',
+        domain_cold_d2_2: 'Cold chain integrity certificate auto-issuance',
+        domain_cold_d2_3: 'Historical data-based energy efficiency analysis',
+
+        // Domain: Allergen
+        domain_allergen_d1: 'Management Items',
+        domain_allergen_d1_1: '22-allergen database per Food Sanitation Act',
+        domain_allergen_d1_2: 'Line-level cleaning procedure management for cross-contamination prevention',
+        domain_allergen_d1_3: 'Auto-alert on allergen-containing ingredient changes',
+        domain_allergen_d2: 'Key Features',
+        domain_allergen_d2_1: 'Line Clearance checklist automation',
+        domain_allergen_d2_2: 'Vision AI-based allergen label auto-verification',
+        domain_allergen_d2_3: 'Allergen traceability and recall impact scope calculation',
+
+        // Domain: CIP/SIP
+        domain_cip_d1: 'Process Management',
+        domain_cip_d1_1: 'CIP (Clean-in-Place): Alkali→Acid→Rinse step-by-step auto control',
+        domain_cip_d1_2: 'SIP (Sterilize-in-Place): Steam temp/pressure/time monitoring',
+        domain_cip_d1_3: 'Cleaning solution concentration, flow rate, temperature real-time verification',
+        domain_cip_d2: 'Validation',
+        domain_cip_d2_1: 'Microbial test result integration (ATP, culture test)',
+        domain_cip_d2_2: 'Cleaning validation record auto-generation and archival',
+        domain_cip_d2_3: 'Cleaning cycle optimization (AI-based contamination prediction)',
+
+        // Domain: LOT Traceability
+        domain_lot_d1: 'Tracking System',
+        domain_lot_d1_1: 'Raw material LOT → Semi-finished LOT → Finished LOT forward tracking',
+        domain_lot_d1_2: 'Finished → Raw material backward tracking (recall response)',
+        domain_lot_d1_3: 'Process parameter/operator/equipment history linked per step',
+        domain_lot_d2: 'Key Features',
+        domain_lot_d2_1: 'Recall simulation: Auto-calculate affected LOTs/distributors',
+        domain_lot_d2_2: 'MFDS traceability report auto-generation',
+        domain_lot_d2_3: 'QR/barcode scan-based on-site instant lookup',
+
+        // Domain: Shelf Life
+        domain_shelf_d1: 'Prediction Model',
+        domain_shelf_d1_1: 'Arrhenius model-based shelf life prediction per temperature',
+        domain_shelf_d1_2: 'Accelerated test data management and regression analysis',
+        domain_shelf_d1_3: 'Remaining shelf life recalculation on storage condition changes',
+        domain_shelf_d2: 'Key Features',
+        domain_shelf_d2_1: 'FEFO (First Expiry, First Out) shipping strategy auto-application',
+        domain_shelf_d2_2: 'Auto-alert for near-expiry products (D-7, D-3, D-1)',
+        domain_shelf_d2_3: 'Quality change prediction-based optimal shipment timing recommendation',
     }
 };
 
@@ -428,6 +682,31 @@ const translations = {
                     el.textContent = originalTexts[key];
                 }
             });
+        });
+    });
+})();
+
+// ==================== Card Detail Toggle ====================
+(function initCardDetailToggle() {
+    const cardSelectors = '.module-card, .service-card, .ai-model-card, .domain-card';
+
+    document.querySelectorAll(cardSelectors).forEach(card => {
+        const detail = card.querySelector('.card-detail');
+        if (!detail) return;
+
+        card.addEventListener('click', (e) => {
+            // Don't toggle if clicking a link or button inside the card
+            if (e.target.closest('a, button')) return;
+
+            const isOpen = detail.classList.contains('open');
+
+            if (isOpen) {
+                detail.classList.remove('open');
+                card.classList.remove('expanded');
+            } else {
+                detail.classList.add('open');
+                card.classList.add('expanded');
+            }
         });
     });
 })();

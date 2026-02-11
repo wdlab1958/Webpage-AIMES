@@ -309,6 +309,7 @@
             <div class="modules-grid fade-in">
                 <!-- AI Quality -->
                 <div class="module-card">
+                    <i class="bi bi-chevron-down card-chevron"></i>
                     <div class="card-icon icon-box-companion"><i class="bi bi-clipboard2-pulse"></i></div>
                     <h4 data-i18n="mod_quality_title">AI 품질예측</h4>
                     <p data-i18n="mod_quality_desc">공정 변수 실시간 분석으로 품질 이상 사전 감지. SPC 자동화 및 AI 기반 이상치 탐지로 불량을 예방합니다.</p>
@@ -327,10 +328,32 @@
                         <span class="feature-tag feature-tag-pink">비전 AI</span>
                         <span class="feature-tag feature-tag-pink">SPC 자동화</span>
                     </div>
+                    <div class="card-detail">
+                        <div class="detail-subtitle" data-i18n="mod_quality_d1">주요 기능</div>
+                        <ul>
+                            <li data-i18n="mod_quality_d1_1">공정변수 시계열 분석 (온도, 압력, pH, 습도 등 30+ 변수)</li>
+                            <li data-i18n="mod_quality_d1_2">SPC 관리도 자동 생성 및 이상 패턴 감지 (Nelson Rules)</li>
+                            <li data-i18n="mod_quality_d1_3">품질 이탈 확률 실시간 예측 및 사전 경보</li>
+                            <li data-i18n="mod_quality_d1_4">불량 원인 자동 분석 (기여변수 Top-5 제시)</li>
+                        </ul>
+                        <div class="detail-subtitle" data-i18n="mod_quality_d2">기술 상세</div>
+                        <ul>
+                            <li data-i18n="mod_quality_d2_1">LSTM 시계열 예측 + XGBoost 앙상블 모델</li>
+                            <li data-i18n="mod_quality_d2_2">Isolation Forest / Autoencoder 이상치 탐지</li>
+                            <li data-i18n="mod_quality_d2_3">SHAP 기반 예측 설명력 제공</li>
+                        </ul>
+                        <div class="detail-tags">
+                            <span class="feature-tag feature-tag-pink">TimescaleDB</span>
+                            <span class="feature-tag feature-tag-pink">PyTorch</span>
+                            <span class="feature-tag feature-tag-pink">SHAP</span>
+                            <span class="feature-tag feature-tag-pink">Grafana</span>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Process Optimization -->
                 <div class="module-card">
+                    <i class="bi bi-chevron-down card-chevron"></i>
                     <div class="card-icon icon-box-accent"><i class="bi bi-sliders2"></i></div>
                     <h4 data-i18n="mod_process_title">AI 공정최적화</h4>
                     <p data-i18n="mod_process_desc">최적 공정 파라미터 자동 설정. 원료 특성 변화에 따른 적응적 제어. 디지털 트윈 기반 시뮬레이션을 구현합니다.</p>
@@ -349,10 +372,31 @@
                         <span class="feature-tag feature-tag-purple">Bayesian Opt.</span>
                         <span class="feature-tag feature-tag-purple">디지털 트윈</span>
                     </div>
+                    <div class="card-detail">
+                        <div class="detail-subtitle" data-i18n="mod_process_d1">주요 기능</div>
+                        <ul>
+                            <li data-i18n="mod_process_d1_1">원료 배합비 자동 최적화 (원료 편차 실시간 보정)</li>
+                            <li data-i18n="mod_process_d1_2">살균/멸균 온도·시간 프로파일 최적화</li>
+                            <li data-i18n="mod_process_d1_3">에너지 소비 최소화 스케줄링 (피크타임 회피)</li>
+                            <li data-i18n="mod_process_d1_4">디지털 트윈 시뮬레이션 (What-if 분석)</li>
+                        </ul>
+                        <div class="detail-subtitle" data-i18n="mod_process_d2">기술 상세</div>
+                        <ul>
+                            <li data-i18n="mod_process_d2_1">강화학습 PPO 에이전트 기반 공정 파라미터 탐색</li>
+                            <li data-i18n="mod_process_d2_2">Bayesian Optimization으로 빠른 수렴</li>
+                            <li data-i18n="mod_process_d2_3">공정 시뮬레이터 (Python SimPy) 연동</li>
+                        </ul>
+                        <div class="detail-tags">
+                            <span class="feature-tag feature-tag-purple">Stable-Baselines3</span>
+                            <span class="feature-tag feature-tag-purple">Optuna</span>
+                            <span class="feature-tag feature-tag-purple">SimPy</span>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Predictive Maintenance -->
                 <div class="module-card">
+                    <i class="bi bi-chevron-down card-chevron"></i>
                     <div class="card-icon icon-box"><i class="bi bi-gear-wide-connected"></i></div>
                     <h4 data-i18n="mod_maint_title">AI 예지보전</h4>
                     <p data-i18n="mod_maint_desc">IoT 센서 데이터 기반 설비 고장 예측. 최적 정비 주기 산출. 설비 수명 예측으로 비계획 정지를 최소화합니다.</p>
@@ -371,10 +415,31 @@
                         <span class="feature-tag">Survival Analysis</span>
                         <span class="feature-tag">RUL 예측</span>
                     </div>
+                    <div class="card-detail">
+                        <div class="detail-subtitle" data-i18n="mod_maint_d1">주요 기능</div>
+                        <ul>
+                            <li data-i18n="mod_maint_d1_1">진동/온도/전류 센서 데이터 실시간 수집 및 분석</li>
+                            <li data-i18n="mod_maint_d1_2">설비별 잔여수명(RUL) 예측 및 고장 확률 산출</li>
+                            <li data-i18n="mod_maint_d1_3">최적 정비 스케줄 자동 생성 (비용 최적화)</li>
+                            <li data-i18n="mod_maint_d1_4">CIP/SIP 세정 주기 최적화 및 밸리데이션</li>
+                        </ul>
+                        <div class="detail-subtitle" data-i18n="mod_maint_d2">기술 상세</div>
+                        <ul>
+                            <li data-i18n="mod_maint_d2_1">LSTM 시계열 예측 + Weibull Survival Analysis</li>
+                            <li data-i18n="mod_maint_d2_2">FFT 주파수 분석으로 베어링/모터 이상 감지</li>
+                            <li data-i18n="mod_maint_d2_3">Edge AI 실시간 추론 (NVIDIA Jetson)</li>
+                        </ul>
+                        <div class="detail-tags">
+                            <span class="feature-tag">lifelines</span>
+                            <span class="feature-tag">SciPy FFT</span>
+                            <span class="feature-tag">TensorRT</span>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Vision AI -->
                 <div class="module-card">
+                    <i class="bi bi-chevron-down card-chevron"></i>
                     <div class="card-icon icon-box-success"><i class="bi bi-eye"></i></div>
                     <h4 data-i18n="mod_vision_title">AI 비전검사</h4>
                     <p data-i18n="mod_vision_desc">외관 불량 자동 검출(색상, 형상, 이물). 포장 상태 검사. 라벨링 검증으로 검사 인력을 크게 절감합니다.</p>
@@ -393,10 +458,31 @@
                         <span class="feature-tag" style="background: rgba(16,185,129,0.1); color: var(--success); border-color: rgba(16,185,129,0.2);">EfficientNet</span>
                         <span class="feature-tag" style="background: rgba(16,185,129,0.1); color: var(--success); border-color: rgba(16,185,129,0.2);">TensorRT</span>
                     </div>
+                    <div class="card-detail">
+                        <div class="detail-subtitle" data-i18n="mod_vision_d1">주요 기능</div>
+                        <ul>
+                            <li data-i18n="mod_vision_d1_1">외관 불량 자동 검출 (색상 변이, 형상 이상, 이물질)</li>
+                            <li data-i18n="mod_vision_d1_2">포장 상태 검사 (밀봉, 충전량, 파손)</li>
+                            <li data-i18n="mod_vision_d1_3">라벨 OCR 검증 (알레르겐 표기, 유통기한, 바코드)</li>
+                            <li data-i18n="mod_vision_d1_4">불량 이미지 자동 저장 및 분류 (MinIO S3)</li>
+                        </ul>
+                        <div class="detail-subtitle" data-i18n="mod_vision_d2">기술 상세</div>
+                        <ul>
+                            <li data-i18n="mod_vision_d2_1">YOLOv8 객체 감지 + EfficientNet 분류 모델</li>
+                            <li data-i18n="mod_vision_d2_2">Edge AI 추론 &lt; 50ms (NVIDIA Jetson + TensorRT)</li>
+                            <li data-i18n="mod_vision_d2_3">Active Learning으로 지속적 모델 개선</li>
+                        </ul>
+                        <div class="detail-tags">
+                            <span class="feature-tag" style="background: rgba(16,185,129,0.1); color: var(--success); border-color: rgba(16,185,129,0.2);">Ultralytics</span>
+                            <span class="feature-tag" style="background: rgba(16,185,129,0.1); color: var(--success); border-color: rgba(16,185,129,0.2);">ONNX</span>
+                            <span class="feature-tag" style="background: rgba(16,185,129,0.1); color: var(--success); border-color: rgba(16,185,129,0.2);">OpenCV</span>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- HACCP Automation -->
                 <div class="module-card">
+                    <i class="bi bi-chevron-down card-chevron"></i>
                     <div class="card-icon icon-box-warning"><i class="bi bi-thermometer-half"></i></div>
                     <h4 data-i18n="mod_haccp_title">HACCP 자동화</h4>
                     <p data-i18n="mod_haccp_desc">CCP 실시간 모니터링 및 자동 기록. 이탈 시 자동 경보/조치. 식약처 보고서 자동 생성으로 규제 대응을 혁신합니다.</p>
@@ -414,10 +500,31 @@
                         <span class="feature-tag" style="background: rgba(245,158,11,0.1); color: var(--warning); border-color: rgba(245,158,11,0.2);">CCP 모니터링</span>
                         <span class="feature-tag" style="background: rgba(245,158,11,0.1); color: var(--warning); border-color: rgba(245,158,11,0.2);">자동 보고서</span>
                     </div>
+                    <div class="card-detail">
+                        <div class="detail-subtitle" data-i18n="mod_haccp_d1">주요 기능</div>
+                        <ul>
+                            <li data-i18n="mod_haccp_d1_1">CCP(중요관리점) 실시간 모니터링 및 자동 기록</li>
+                            <li data-i18n="mod_haccp_d1_2">한계기준 이탈 시 3단계 자동 경보 (주의→경고→긴급)</li>
+                            <li data-i18n="mod_haccp_d1_3">시정조치 워크플로우 자동화 (담당자 지정, 기한 관리)</li>
+                            <li data-i18n="mod_haccp_d1_4">식약처 HACCP 보고서 자동 생성 (PDF/Excel)</li>
+                        </ul>
+                        <div class="detail-subtitle" data-i18n="mod_haccp_d2">모니터링 항목</div>
+                        <ul>
+                            <li data-i18n="mod_haccp_d2_1">살균 온도/시간, 냉각 온도, 금속 검출</li>
+                            <li data-i18n="mod_haccp_d2_2">pH, 수분활성도(Aw), 미생물 한계</li>
+                            <li data-i18n="mod_haccp_d2_3">CIP/SIP 세정 온도/농도/시간 검증</li>
+                        </ul>
+                        <div class="detail-tags">
+                            <span class="feature-tag" style="background: rgba(245,158,11,0.1); color: var(--warning); border-color: rgba(245,158,11,0.2);">MFDS 연동</span>
+                            <span class="feature-tag" style="background: rgba(245,158,11,0.1); color: var(--warning); border-color: rgba(245,158,11,0.2);">Kafka Stream</span>
+                            <span class="feature-tag" style="background: rgba(245,158,11,0.1); color: var(--warning); border-color: rgba(245,158,11,0.2);">ReportLab</span>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Security -->
                 <div class="module-card">
+                    <i class="bi bi-chevron-down card-chevron"></i>
                     <div class="card-icon icon-box"><i class="bi bi-shield-lock"></i></div>
                     <h4 data-i18n="mod_sec_title">보안 모듈</h4>
                     <p data-i18n="mod_sec_desc">온프레미스 환경 OT/IT 보안 통합관리. Purdue Model 기반 네트워크 분리. Zero Trust 아키텍처로 보안사고를 예방합니다.</p>
@@ -436,6 +543,27 @@
                         <span class="feature-tag">mTLS</span>
                         <span class="feature-tag">RBAC</span>
                     </div>
+                    <div class="card-detail">
+                        <div class="detail-subtitle" data-i18n="mod_sec_d1">주요 기능</div>
+                        <ul>
+                            <li data-i18n="mod_sec_d1_1">Purdue Model 기반 OT/IT 네트워크 분리 (DMZ, Data Diode)</li>
+                            <li data-i18n="mod_sec_d1_2">Zero Trust: mTLS 상호인증, 서비스 메시 보안</li>
+                            <li data-i18n="mod_sec_d1_3">RBAC + ABAC 하이브리드 접근제어</li>
+                            <li data-i18n="mod_sec_d1_4">보안 이벤트 통합 모니터링 (SIEM 연동)</li>
+                        </ul>
+                        <div class="detail-subtitle" data-i18n="mod_sec_d2">보안 체계</div>
+                        <ul>
+                            <li data-i18n="mod_sec_d2_1">AES-256 데이터 암호화 (at rest / in transit)</li>
+                            <li data-i18n="mod_sec_d2_2">HashiCorp Vault 시크릿 관리</li>
+                            <li data-i18n="mod_sec_d2_3">컨테이너 이미지 서명 및 스캔 (Harbor + Trivy)</li>
+                        </ul>
+                        <div class="detail-tags">
+                            <span class="feature-tag">Vault</span>
+                            <span class="feature-tag">Falco</span>
+                            <span class="feature-tag">Trivy</span>
+                            <span class="feature-tag">Wazuh</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -453,6 +581,7 @@
             <div class="services-grid fade-in">
                 <!-- API Gateway -->
                 <div class="service-card service-card-gateway">
+                    <i class="bi bi-chevron-down card-chevron"></i>
                     <div class="svc-header">
                         <div class="svc-icon"><i class="bi bi-hdd-network"></i></div>
                         <div>
@@ -463,10 +592,26 @@
                     </div>
                     <p class="small text-muted">JWT 인증, RBAC, Rate Limiting, Circuit Breaker</p>
                     <div class="svc-port">Port: 8080</div>
+                    <div class="card-detail">
+                        <div class="detail-subtitle" data-i18n="svc_gw_d1">주요 기능</div>
+                        <ul>
+                            <li data-i18n="svc_gw_d1_1">JWT 기반 인증/인가 + 토큰 자동 갱신</li>
+                            <li data-i18n="svc_gw_d1_2">역할 기반 접근제어 (RBAC): 관리자/작업자/품질관리자/설비담당</li>
+                            <li data-i18n="svc_gw_d1_3">Rate Limiting (IP별/사용자별) + Circuit Breaker 패턴</li>
+                            <li data-i18n="svc_gw_d1_4">요청 로깅, 분산 추적 (Correlation ID), WAF 룰 적용</li>
+                        </ul>
+                        <div class="detail-subtitle" data-i18n="svc_gw_d2">주요 엔드포인트</div>
+                        <ul>
+                            <li>POST /auth/login, POST /auth/refresh</li>
+                            <li>GET /api/v1/* (프록시 라우팅)</li>
+                            <li>GET /health, GET /metrics</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <!-- Production -->
                 <div class="service-card">
+                    <i class="bi bi-chevron-down card-chevron"></i>
                     <div class="svc-header">
                         <div class="svc-icon"><i class="bi bi-box-seam"></i></div>
                         <div>
@@ -477,10 +622,26 @@
                     </div>
                     <p class="small text-muted" data-i18n="svc_prod_desc">생산계획, 작업지시, 배합비 관리, 상태머신</p>
                     <div class="svc-port">Port: 8001</div>
+                    <div class="card-detail">
+                        <div class="detail-subtitle" data-i18n="svc_prod_d1">주요 기능</div>
+                        <ul>
+                            <li data-i18n="svc_prod_d1_1">생산계획 수립/수정/조회 (일별/주별/월별)</li>
+                            <li data-i18n="svc_prod_d1_2">작업지시 생성 및 상태머신 (대기→진행→완료→검증)</li>
+                            <li data-i18n="svc_prod_d1_3">배합비(Recipe) 관리 및 버전 이력 추적</li>
+                            <li data-i18n="svc_prod_d1_4">생산 실적 자동 집계 및 KPI 대시보드</li>
+                        </ul>
+                        <div class="detail-subtitle" data-i18n="svc_prod_d2">주요 엔드포인트</div>
+                        <ul>
+                            <li>POST /production/plans, GET /production/plans/{id}</li>
+                            <li>POST /production/work-orders, PATCH /work-orders/{id}/status</li>
+                            <li>GET /production/recipes, POST /production/recipes</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <!-- Quality -->
                 <div class="service-card">
+                    <i class="bi bi-chevron-down card-chevron"></i>
                     <div class="svc-header">
                         <div class="svc-icon" style="color: var(--companion);"><i class="bi bi-patch-check"></i></div>
                         <div>
@@ -491,10 +652,26 @@
                     </div>
                     <p class="small text-muted" data-i18n="svc_quality_desc">품질검사, 불량관리, 시정조치 워크플로우</p>
                     <div class="svc-port">Port: 8002</div>
+                    <div class="card-detail">
+                        <div class="detail-subtitle" data-i18n="svc_quality_d1">주요 기능</div>
+                        <ul>
+                            <li data-i18n="svc_quality_d1_1">입고/공정/출하 품질검사 기록 및 합부 판정</li>
+                            <li data-i18n="svc_quality_d1_2">SPC 관리도 자동 생성 (X-bar, R, p, c chart)</li>
+                            <li data-i18n="svc_quality_d1_3">불량 유형별 분류 및 파레토 분석</li>
+                            <li data-i18n="svc_quality_d1_4">시정조치(CAPA) 워크플로우: 발행→조사→시정→검증→종결</li>
+                        </ul>
+                        <div class="detail-subtitle" data-i18n="svc_quality_d2">주요 엔드포인트</div>
+                        <ul>
+                            <li>POST /quality/inspections, GET /quality/inspections/{id}</li>
+                            <li>POST /quality/defects, GET /quality/spc/{line_id}</li>
+                            <li>POST /quality/capa, PATCH /quality/capa/{id}/status</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <!-- Inventory -->
                 <div class="service-card">
+                    <i class="bi bi-chevron-down card-chevron"></i>
                     <div class="svc-header">
                         <div class="svc-icon" style="color: var(--success);"><i class="bi bi-archive"></i></div>
                         <div>
@@ -505,10 +682,26 @@
                     </div>
                     <p class="small text-muted" data-i18n="svc_inv_desc">재고관리, 콜드체인 관리, 유통기한 자동계산</p>
                     <div class="svc-port">Port: 8003</div>
+                    <div class="card-detail">
+                        <div class="detail-subtitle" data-i18n="svc_inv_d1">주요 기능</div>
+                        <ul>
+                            <li data-i18n="svc_inv_d1_1">원자재/반제품/완제품 재고 실시간 추적 (LOT 기반)</li>
+                            <li data-i18n="svc_inv_d1_2">콜드체인 존별 온/습도 모니터링 및 이탈 알림</li>
+                            <li data-i18n="svc_inv_d1_3">유통기한 자동 계산 (제조일 + 보관조건 기반)</li>
+                            <li data-i18n="svc_inv_d1_4">FIFO/FEFO 출고 전략 자동 적용</li>
+                        </ul>
+                        <div class="detail-subtitle" data-i18n="svc_inv_d2">주요 엔드포인트</div>
+                        <ul>
+                            <li>GET /inventory/items, POST /inventory/movements</li>
+                            <li>GET /inventory/cold-chain/{zone_id}/status</li>
+                            <li>GET /inventory/expiry-alerts</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <!-- Maintenance -->
                 <div class="service-card">
+                    <i class="bi bi-chevron-down card-chevron"></i>
                     <div class="svc-header">
                         <div class="svc-icon" style="color: var(--warning);"><i class="bi bi-tools"></i></div>
                         <div>
@@ -519,10 +712,26 @@
                     </div>
                     <p class="small text-muted" data-i18n="svc_maint_desc">설비관리, CIP/SIP 세정관리, 예방보전</p>
                     <div class="svc-port">Port: 8004</div>
+                    <div class="card-detail">
+                        <div class="detail-subtitle" data-i18n="svc_maint_d1">주요 기능</div>
+                        <ul>
+                            <li data-i18n="svc_maint_d1_1">설비 대장 관리 (자산 등록, 스펙, 이력)</li>
+                            <li data-i18n="svc_maint_d1_2">CIP/SIP 세정 프로세스 관리 및 밸리데이션</li>
+                            <li data-i18n="svc_maint_d1_3">예방보전(PM) 스케줄 자동 생성</li>
+                            <li data-i18n="svc_maint_d1_4">정비 작업지시서 관리 (생성→배정→완료→검증)</li>
+                        </ul>
+                        <div class="detail-subtitle" data-i18n="svc_maint_d2">주요 엔드포인트</div>
+                        <ul>
+                            <li>GET /maintenance/equipment, POST /maintenance/work-orders</li>
+                            <li>POST /maintenance/cip-sip/sessions, GET /cip-sip/validations</li>
+                            <li>GET /maintenance/pm-schedule/{equipment_id}</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <!-- HACCP -->
                 <div class="service-card">
+                    <i class="bi bi-chevron-down card-chevron"></i>
                     <div class="svc-header">
                         <div class="svc-icon" style="color: #ef4444;"><i class="bi bi-shield-exclamation"></i></div>
                         <div>
@@ -533,10 +742,26 @@
                     </div>
                     <p class="small text-muted" data-i18n="svc_haccp_desc">CCP 실시간 감시, 식약처 보고서 자동생성</p>
                     <div class="svc-port">Port: 8005</div>
+                    <div class="card-detail">
+                        <div class="detail-subtitle" data-i18n="svc_haccp_d1">주요 기능</div>
+                        <ul>
+                            <li data-i18n="svc_haccp_d1_1">HACCP 계획 등록 및 CCP 포인트 설정</li>
+                            <li data-i18n="svc_haccp_d1_2">CCP 실시간 모니터링 (한계기준 자동 판정)</li>
+                            <li data-i18n="svc_haccp_d1_3">이탈 발생 시 시정조치 워크플로우 자동 실행</li>
+                            <li data-i18n="svc_haccp_d1_4">식약처 제출용 HACCP 보고서 자동 생성 (PDF)</li>
+                        </ul>
+                        <div class="detail-subtitle" data-i18n="svc_haccp_d2">주요 엔드포인트</div>
+                        <ul>
+                            <li>POST /haccp/plans, GET /haccp/ccp/{point_id}/readings</li>
+                            <li>POST /haccp/deviations, GET /haccp/corrective-actions</li>
+                            <li>GET /haccp/reports/generate/{period}</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <!-- Traceability -->
                 <div class="service-card">
+                    <i class="bi bi-chevron-down card-chevron"></i>
                     <div class="svc-header">
                         <div class="svc-icon" style="color: var(--accent);"><i class="bi bi-diagram-3"></i></div>
                         <div>
@@ -547,10 +772,26 @@
                     </div>
                     <p class="small text-muted" data-i18n="svc_trace_desc">LOT 양방향 추적, 알레르겐 추적, 리콜 관리</p>
                     <div class="svc-port">Port: 8006</div>
+                    <div class="card-detail">
+                        <div class="detail-subtitle" data-i18n="svc_trace_d1">주요 기능</div>
+                        <ul>
+                            <li data-i18n="svc_trace_d1_1">원료→제품 정방향 / 제품→원료 역방향 LOT 추적</li>
+                            <li data-i18n="svc_trace_d1_2">알레르겐 교차오염 추적 (라인별 클리어링 이력)</li>
+                            <li data-i18n="svc_trace_d1_3">리콜 시뮬레이션 및 영향 범위 자동 산출</li>
+                            <li data-i18n="svc_trace_d1_4">식약처 이력추적 보고 자동화</li>
+                        </ul>
+                        <div class="detail-subtitle" data-i18n="svc_trace_d2">주요 엔드포인트</div>
+                        <ul>
+                            <li>GET /traceability/lot/{lot_id}/forward</li>
+                            <li>GET /traceability/lot/{lot_id}/backward</li>
+                            <li>POST /traceability/recalls, GET /recalls/{id}/impact</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <!-- Notification -->
                 <div class="service-card">
+                    <i class="bi bi-chevron-down card-chevron"></i>
                     <div class="svc-header">
                         <div class="svc-icon"><i class="bi bi-bell"></i></div>
                         <div>
@@ -561,10 +802,26 @@
                     </div>
                     <p class="small text-muted" data-i18n="svc_noti_desc">CCP 이탈 즉시 알림, SMS/카카오톡 연동</p>
                     <div class="svc-port">Port: 8007</div>
+                    <div class="card-detail">
+                        <div class="detail-subtitle" data-i18n="svc_noti_d1">주요 기능</div>
+                        <ul>
+                            <li data-i18n="svc_noti_d1_1">CCP 이탈 즉시 알림 (WebSocket + Push)</li>
+                            <li data-i18n="svc_noti_d1_2">SMS / 카카오톡 알림톡 연동</li>
+                            <li data-i18n="svc_noti_d1_3">알림 우선순위 및 에스컬레이션 규칙 관리</li>
+                            <li data-i18n="svc_noti_d1_4">알림 이력 조회 및 확인(ACK) 관리</li>
+                        </ul>
+                        <div class="detail-subtitle" data-i18n="svc_noti_d2">주요 엔드포인트</div>
+                        <ul>
+                            <li>POST /notifications/send, GET /notifications/history</li>
+                            <li>POST /notifications/{id}/acknowledge</li>
+                            <li>PUT /notifications/rules/{rule_id}</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <!-- Data Ingestion -->
                 <div class="service-card">
+                    <i class="bi bi-chevron-down card-chevron"></i>
                     <div class="svc-header">
                         <div class="svc-icon" style="color: var(--success);"><i class="bi bi-cpu"></i></div>
                         <div>
@@ -575,6 +832,21 @@
                     </div>
                     <p class="small text-muted" data-i18n="svc_data_desc">센서 데이터 실시간 수집, Edge 통신</p>
                     <div class="svc-port">Port: 8008</div>
+                    <div class="card-detail">
+                        <div class="detail-subtitle" data-i18n="svc_data_d1">주요 기능</div>
+                        <ul>
+                            <li data-i18n="svc_data_d1_1">Edge Gateway → Kafka 센서 데이터 실시간 수집</li>
+                            <li data-i18n="svc_data_d1_2">프로토콜 변환 (OPC-UA, Modbus, MQTT → Kafka)</li>
+                            <li data-i18n="svc_data_d1_3">데이터 유효성 검증 및 이상값 필터링</li>
+                            <li data-i18n="svc_data_d1_4">네트워크 단절 시 로컬 버퍼링 및 자동 재전송</li>
+                        </ul>
+                        <div class="detail-subtitle" data-i18n="svc_data_d2">주요 엔드포인트</div>
+                        <ul>
+                            <li>POST /ingestion/sensor-data (batch)</li>
+                            <li>WebSocket /ingestion/stream (real-time)</li>
+                            <li>GET /ingestion/edge-devices/status</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -595,55 +867,169 @@
             <!-- AI Models Table -->
             <div class="ai-models-wrapper fade-in">
                 <div class="ai-model-card">
+                    <i class="bi bi-chevron-down card-chevron"></i>
                     <div class="ai-model-icon" style="color: var(--companion);"><i class="bi bi-graph-up"></i></div>
                     <h5 data-i18n="ai_m1_title">품질예측</h5>
                     <div class="ai-model-algo">LSTM / XGBoost</div>
                     <p class="small text-muted" data-i18n="ai_m1_desc">공정변수 시계열 분석 &rarr; 품질 이상 확률 예측</p>
                     <span class="feature-tag feature-tag-pink">GPU 서버</span>
                     <span class="feature-tag feature-tag-pink">주 1회 학습</span>
+                    <div class="card-detail" style="text-align: left;">
+                        <div class="detail-subtitle" data-i18n="ai_m1_d1">입출력 데이터</div>
+                        <ul>
+                            <li data-i18n="ai_m1_d1_1">입력: 온도, 압력, pH, 습도 등 30+ 공정 변수 시계열</li>
+                            <li data-i18n="ai_m1_d1_2">출력: 품질 이상 확률 (0~1), 기여변수 Top-5, 신뢰구간</li>
+                        </ul>
+                        <div class="detail-subtitle" data-i18n="ai_m1_d2">모델 스펙</div>
+                        <ul>
+                            <li data-i18n="ai_m1_d2_1">LSTM 2-layer (hidden 128) + XGBoost 앙상블</li>
+                            <li data-i18n="ai_m1_d2_2">학습 주기: 주 1회 / 추론 지연: &lt; 200ms</li>
+                            <li data-i18n="ai_m1_d2_3">성능 목표: F1-Score &ge; 0.92, AUC &ge; 0.95</li>
+                        </ul>
+                        <div class="detail-tags">
+                            <span class="feature-tag feature-tag-pink">PyTorch</span>
+                            <span class="feature-tag feature-tag-pink">SHAP</span>
+                            <span class="feature-tag feature-tag-pink">MLflow</span>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="ai-model-card">
+                    <i class="bi bi-chevron-down card-chevron"></i>
                     <div class="ai-model-icon" style="color: var(--danger);"><i class="bi bi-exclamation-triangle"></i></div>
                     <h5 data-i18n="ai_m2_title">이상감지</h5>
                     <div class="ai-model-algo">Isolation Forest / Autoencoder</div>
                     <p class="small text-muted" data-i18n="ai_m2_desc">센서 다변량 데이터 &rarr; 이상 점수 + 기여 변수</p>
                     <span class="feature-tag">Edge + GPU</span>
                     <span class="feature-tag">일 1회 학습</span>
+                    <div class="card-detail" style="text-align: left;">
+                        <div class="detail-subtitle" data-i18n="ai_m2_d1">입출력 데이터</div>
+                        <ul>
+                            <li data-i18n="ai_m2_d1_1">입력: 센서 다변량 시계열 (진동, 온도, 전류, 압력)</li>
+                            <li data-i18n="ai_m2_d1_2">출력: 이상 점수 (0~1), 기여 변수 순위, 이상 유형 분류</li>
+                        </ul>
+                        <div class="detail-subtitle" data-i18n="ai_m2_d2">모델 스펙</div>
+                        <ul>
+                            <li data-i18n="ai_m2_d2_1">Isolation Forest (비지도) + LSTM Autoencoder (반지도)</li>
+                            <li data-i18n="ai_m2_d2_2">학습 주기: 일 1회 / Edge 추론: &lt; 10ms</li>
+                            <li data-i18n="ai_m2_d2_3">성능 목표: 정밀도 &ge; 0.90, 재현율 &ge; 0.95</li>
+                        </ul>
+                        <div class="detail-tags">
+                            <span class="feature-tag">scikit-learn</span>
+                            <span class="feature-tag">TensorRT</span>
+                            <span class="feature-tag">ONNX</span>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="ai-model-card">
+                    <i class="bi bi-chevron-down card-chevron"></i>
                     <div class="ai-model-icon" style="color: var(--accent);"><i class="bi bi-sliders"></i></div>
                     <h5 data-i18n="ai_m3_title">공정최적화</h5>
                     <div class="ai-model-algo">RL (PPO) / Bayesian Opt.</div>
                     <p class="small text-muted" data-i18n="ai_m3_desc">공정 파라미터 + 품질 결과 &rarr; 최적 파라미터 세트</p>
                     <span class="feature-tag feature-tag-purple">GPU 서버</span>
                     <span class="feature-tag feature-tag-purple">월 1회 학습</span>
+                    <div class="card-detail" style="text-align: left;">
+                        <div class="detail-subtitle" data-i18n="ai_m3_d1">입출력 데이터</div>
+                        <ul>
+                            <li data-i18n="ai_m3_d1_1">입력: 공정 파라미터 + 원료 특성 + 환경 조건</li>
+                            <li data-i18n="ai_m3_d1_2">출력: 최적 파라미터 세트, 예상 수율, 에너지 절감 추정</li>
+                        </ul>
+                        <div class="detail-subtitle" data-i18n="ai_m3_d2">모델 스펙</div>
+                        <ul>
+                            <li data-i18n="ai_m3_d2_1">PPO 에이전트 (Actor-Critic) + Bayesian Optimization</li>
+                            <li data-i18n="ai_m3_d2_2">학습 주기: 월 1회 / 추론: &lt; 500ms</li>
+                            <li data-i18n="ai_m3_d2_3">성능 목표: 수율 +5~10%, 에너지 -15%</li>
+                        </ul>
+                        <div class="detail-tags">
+                            <span class="feature-tag feature-tag-purple">Stable-Baselines3</span>
+                            <span class="feature-tag feature-tag-purple">Optuna</span>
+                            <span class="feature-tag feature-tag-purple">Gymnasium</span>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="ai-model-card">
+                    <i class="bi bi-chevron-down card-chevron"></i>
                     <div class="ai-model-icon" style="color: var(--success);"><i class="bi bi-camera-video"></i></div>
                     <h5 data-i18n="ai_m4_title">비전검사</h5>
                     <div class="ai-model-algo">YOLOv8 / EfficientNet</div>
                     <p class="small text-muted" data-i18n="ai_m4_desc">제품 이미지 &rarr; 불량 유형 + 좌표 + 신뢰도</p>
                     <span class="feature-tag" style="background: rgba(16,185,129,0.1); color: var(--success); border-color: rgba(16,185,129,0.2);">Edge (TensorRT)</span>
+                    <div class="card-detail" style="text-align: left;">
+                        <div class="detail-subtitle" data-i18n="ai_m4_d1">입출력 데이터</div>
+                        <ul>
+                            <li data-i18n="ai_m4_d1_1">입력: 산업용 카메라 이미지 (640x640, 30fps)</li>
+                            <li data-i18n="ai_m4_d1_2">출력: 불량 유형, 바운딩 박스 좌표, 신뢰도 점수</li>
+                        </ul>
+                        <div class="detail-subtitle" data-i18n="ai_m4_d2">모델 스펙</div>
+                        <ul>
+                            <li data-i18n="ai_m4_d2_1">YOLOv8m 객체 감지 + EfficientNet-B3 분류</li>
+                            <li data-i18n="ai_m4_d2_2">Edge 추론: &lt; 50ms (NVIDIA Jetson + TensorRT FP16)</li>
+                            <li data-i18n="ai_m4_d2_3">성능 목표: mAP@0.5 &ge; 0.95, 분류 정확도 &ge; 0.97</li>
+                        </ul>
+                        <div class="detail-tags">
+                            <span class="feature-tag" style="background: rgba(16,185,129,0.1); color: var(--success); border-color: rgba(16,185,129,0.2);">Ultralytics</span>
+                            <span class="feature-tag" style="background: rgba(16,185,129,0.1); color: var(--success); border-color: rgba(16,185,129,0.2);">TensorRT</span>
+                            <span class="feature-tag" style="background: rgba(16,185,129,0.1); color: var(--success); border-color: rgba(16,185,129,0.2);">DeepStream</span>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="ai-model-card">
+                    <i class="bi bi-chevron-down card-chevron"></i>
                     <div class="ai-model-icon" style="color: var(--primary);"><i class="bi bi-bar-chart-line"></i></div>
                     <h5 data-i18n="ai_m5_title">수요예측</h5>
                     <div class="ai-model-algo">Prophet / TFT</div>
                     <p class="small text-muted" data-i18n="ai_m5_desc">판매 이력, 계절성, 프로모션 &rarr; 일별/주별 수요량</p>
                     <span class="feature-tag">GPU 서버</span>
                     <span class="feature-tag">주 1회 학습</span>
+                    <div class="card-detail" style="text-align: left;">
+                        <div class="detail-subtitle" data-i18n="ai_m5_d1">입출력 데이터</div>
+                        <ul>
+                            <li data-i18n="ai_m5_d1_1">입력: 판매 이력, 계절성, 프로모션, 날씨, 공휴일</li>
+                            <li data-i18n="ai_m5_d1_2">출력: 일별/주별 SKU별 수요량, 신뢰구간(80/95%)</li>
+                        </ul>
+                        <div class="detail-subtitle" data-i18n="ai_m5_d2">모델 스펙</div>
+                        <ul>
+                            <li data-i18n="ai_m5_d2_1">Prophet (계절성) + Temporal Fusion Transformer (복합 요인)</li>
+                            <li data-i18n="ai_m5_d2_2">학습 주기: 주 1회 / 추론: &lt; 1s (배치)</li>
+                            <li data-i18n="ai_m5_d2_3">성능 목표: MAPE &le; 15%, RMSE 최소화</li>
+                        </ul>
+                        <div class="detail-tags">
+                            <span class="feature-tag">Prophet</span>
+                            <span class="feature-tag">PyTorch Forecasting</span>
+                            <span class="feature-tag">Darts</span>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="ai-model-card">
+                    <i class="bi bi-chevron-down card-chevron"></i>
                     <div class="ai-model-icon" style="color: var(--warning);"><i class="bi bi-clock-history"></i></div>
                     <h5 data-i18n="ai_m6_title">설비 RUL</h5>
                     <div class="ai-model-algo">LSTM / Survival Analysis</div>
                     <p class="small text-muted" data-i18n="ai_m6_desc">진동, 온도, 전류 시계열 &rarr; 잔여수명 + 고장 확률</p>
                     <span class="feature-tag" style="background: rgba(245,158,11,0.1); color: var(--warning); border-color: rgba(245,158,11,0.2);">GPU 서버</span>
+                    <div class="card-detail" style="text-align: left;">
+                        <div class="detail-subtitle" data-i18n="ai_m6_d1">입출력 데이터</div>
+                        <ul>
+                            <li data-i18n="ai_m6_d1_1">입력: 진동, 온도, 전류, 압력 시계열 (설비별)</li>
+                            <li data-i18n="ai_m6_d1_2">출력: 잔여수명(RUL) 일수, 고장 확률, 정비 권고</li>
+                        </ul>
+                        <div class="detail-subtitle" data-i18n="ai_m6_d2">모델 스펙</div>
+                        <ul>
+                            <li data-i18n="ai_m6_d2_1">LSTM 시계열 + Weibull/Cox Survival Analysis</li>
+                            <li data-i18n="ai_m6_d2_2">학습 주기: 월 1회 / 추론: &lt; 300ms</li>
+                            <li data-i18n="ai_m6_d2_3">성능 목표: RUL 예측 오차 &le; &plusmn;20%, C-Index &ge; 0.85</li>
+                        </ul>
+                        <div class="detail-tags">
+                            <span class="feature-tag" style="background: rgba(245,158,11,0.1); color: var(--warning); border-color: rgba(245,158,11,0.2);">lifelines</span>
+                            <span class="feature-tag" style="background: rgba(245,158,11,0.1); color: var(--warning); border-color: rgba(245,158,11,0.2);">PyTorch</span>
+                            <span class="feature-tag" style="background: rgba(245,158,11,0.1); color: var(--warning); border-color: rgba(245,158,11,0.2);">SciPy</span>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -769,34 +1155,124 @@
 
             <div class="domain-grid fade-in">
                 <div class="domain-card">
+                    <i class="bi bi-chevron-down card-chevron"></i>
                     <div class="domain-icon" style="color: var(--danger);"><i class="bi bi-shield-exclamation"></i></div>
                     <h5>HACCP / CCP</h5>
                     <p class="small text-muted" data-i18n="domain_haccp">위해요소 분석, 중요관리점 실시간 모니터링, 시정조치 워크플로우, 보고서 자동생성</p>
+                    <div class="card-detail" style="text-align: left;">
+                        <div class="detail-subtitle" data-i18n="domain_haccp_d1">상세 기능</div>
+                        <ul>
+                            <li data-i18n="domain_haccp_d1_1">7원칙 12절차 기반 HACCP 계획 수립 자동화</li>
+                            <li data-i18n="domain_haccp_d1_2">CCP별 한계기준(CL) 설정 및 실시간 모니터링</li>
+                            <li data-i18n="domain_haccp_d1_3">이탈 시 3단계 에스컬레이션 (주의→경고→긴급)</li>
+                            <li data-i18n="domain_haccp_d1_4">식약처 HACCP 인증 보고서 자동 생성</li>
+                        </ul>
+                        <div class="detail-subtitle" data-i18n="domain_haccp_d2">규정 준수</div>
+                        <ul>
+                            <li data-i18n="domain_haccp_d2_1">식품위생법, 축산물위생관리법 준수</li>
+                            <li data-i18n="domain_haccp_d2_2">Codex Alimentarius 국제 기준 반영</li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="domain-card">
+                    <i class="bi bi-chevron-down card-chevron"></i>
                     <div class="domain-icon" style="color: var(--primary);"><i class="bi bi-snow2"></i></div>
                     <h5 data-i18n="domain_cold_title">콜드체인</h5>
                     <p class="small text-muted" data-i18n="domain_cold">존별 온/습도 실시간 모니터링, 이탈 감지 및 즉시 알림, 콜드체인 인증서 자동 발급</p>
+                    <div class="card-detail" style="text-align: left;">
+                        <div class="detail-subtitle" data-i18n="domain_cold_d1">모니터링 항목</div>
+                        <ul>
+                            <li data-i18n="domain_cold_d1_1">존별 온도/습도 실시간 수집 (1초~1분 주기)</li>
+                            <li data-i18n="domain_cold_d1_2">냉장(0~10°C), 냉동(-18°C 이하) 기준 자동 판정</li>
+                            <li data-i18n="domain_cold_d1_3">문 개방 감지, 제상(Defrost) 주기 모니터링</li>
+                        </ul>
+                        <div class="detail-subtitle" data-i18n="domain_cold_d2">핵심 기능</div>
+                        <ul>
+                            <li data-i18n="domain_cold_d2_1">이탈 즉시 담당자 SMS/Push 알림</li>
+                            <li data-i18n="domain_cold_d2_2">콜드체인 무결성 인증서 자동 발급</li>
+                            <li data-i18n="domain_cold_d2_3">이력 데이터 기반 에너지 효율 분석</li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="domain-card">
+                    <i class="bi bi-chevron-down card-chevron"></i>
                     <div class="domain-icon" style="color: var(--warning);"><i class="bi bi-exclamation-diamond"></i></div>
                     <h5 data-i18n="domain_allergen_title">알레르겐 관리</h5>
                     <p class="small text-muted" data-i18n="domain_allergen">식품위생법 22종 알레르겐 관리, 교차오염 방지 세정 절차, 라인별 클리어링 검증</p>
+                    <div class="card-detail" style="text-align: left;">
+                        <div class="detail-subtitle" data-i18n="domain_allergen_d1">관리 항목</div>
+                        <ul>
+                            <li data-i18n="domain_allergen_d1_1">식품위생법 22종 알레르겐 원료 데이터베이스</li>
+                            <li data-i18n="domain_allergen_d1_2">교차오염 방지를 위한 라인별 세정 절차 관리</li>
+                            <li data-i18n="domain_allergen_d1_3">알레르겐 포함 원료 변경 시 자동 경고</li>
+                        </ul>
+                        <div class="detail-subtitle" data-i18n="domain_allergen_d2">핵심 기능</div>
+                        <ul>
+                            <li data-i18n="domain_allergen_d2_1">라인 클리어링(Line Clearance) 체크리스트 자동화</li>
+                            <li data-i18n="domain_allergen_d2_2">라벨 알레르겐 표기 비전 AI 자동 검증</li>
+                            <li data-i18n="domain_allergen_d2_3">알레르겐 이력 추적 및 리콜 시 영향 범위 산출</li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="domain-card">
+                    <i class="bi bi-chevron-down card-chevron"></i>
                     <div class="domain-icon" style="color: var(--success);"><i class="bi bi-droplet-half"></i></div>
                     <h5>CIP / SIP</h5>
                     <p class="small text-muted" data-i18n="domain_cip">정치세정/정치살균 프로세스 관리, 미생물 검증, 세정 밸리데이션 기록</p>
+                    <div class="card-detail" style="text-align: left;">
+                        <div class="detail-subtitle" data-i18n="domain_cip_d1">프로세스 관리</div>
+                        <ul>
+                            <li data-i18n="domain_cip_d1_1">CIP(정치세정): 알칼리→산→린스 단계별 자동 제어</li>
+                            <li data-i18n="domain_cip_d1_2">SIP(정치살균): 스팀 온도/압력/시간 모니터링</li>
+                            <li data-i18n="domain_cip_d1_3">세정액 농도, 유량, 온도 실시간 검증</li>
+                        </ul>
+                        <div class="detail-subtitle" data-i18n="domain_cip_d2">밸리데이션</div>
+                        <ul>
+                            <li data-i18n="domain_cip_d2_1">미생물 검사 결과 연동 (ATP, 배양검사)</li>
+                            <li data-i18n="domain_cip_d2_2">세정 밸리데이션 기록 자동 생성 및 보관</li>
+                            <li data-i18n="domain_cip_d2_3">세정 주기 최적화 (AI 기반 오염도 예측)</li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="domain-card">
+                    <i class="bi bi-chevron-down card-chevron"></i>
                     <div class="domain-icon" style="color: var(--accent);"><i class="bi bi-arrow-left-right"></i></div>
                     <h5 data-i18n="domain_lot_title">LOT 이력추적</h5>
                     <p class="small text-muted" data-i18n="domain_lot">원료-제품 양방향 LOT 추적, 리콜 대응 체계, 식약처 보고 자동화</p>
+                    <div class="card-detail" style="text-align: left;">
+                        <div class="detail-subtitle" data-i18n="domain_lot_d1">추적 체계</div>
+                        <ul>
+                            <li data-i18n="domain_lot_d1_1">원료 LOT → 반제품 LOT → 완제품 LOT 정방향 추적</li>
+                            <li data-i18n="domain_lot_d1_2">완제품 → 사용 원료 역방향 추적 (리콜 대응)</li>
+                            <li data-i18n="domain_lot_d1_3">공정별 파라미터/담당자/설비 이력 연결</li>
+                        </ul>
+                        <div class="detail-subtitle" data-i18n="domain_lot_d2">핵심 기능</div>
+                        <ul>
+                            <li data-i18n="domain_lot_d2_1">리콜 시뮬레이션: 영향 LOT/출하처 자동 산출</li>
+                            <li data-i18n="domain_lot_d2_2">식약처 이력추적 보고서 자동 생성</li>
+                            <li data-i18n="domain_lot_d2_3">QR/바코드 스캔 기반 현장 즉시 조회</li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="domain-card">
+                    <i class="bi bi-chevron-down card-chevron"></i>
                     <div class="domain-icon" style="color: var(--companion);"><i class="bi bi-calendar2-range"></i></div>
                     <h5 data-i18n="domain_shelf_title">유통기한 관리</h5>
                     <p class="small text-muted" data-i18n="domain_shelf">Arrhenius 모델 기반 유통기한 예측, 가속시험 데이터 관리, 품질 예측</p>
+                    <div class="card-detail" style="text-align: left;">
+                        <div class="detail-subtitle" data-i18n="domain_shelf_d1">예측 모델</div>
+                        <ul>
+                            <li data-i18n="domain_shelf_d1_1">Arrhenius 모델 기반 온도별 유통기한 예측</li>
+                            <li data-i18n="domain_shelf_d1_2">가속시험 데이터 관리 및 회귀 분석</li>
+                            <li data-i18n="domain_shelf_d1_3">보관 조건 변화 시 잔여 유통기한 재계산</li>
+                        </ul>
+                        <div class="detail-subtitle" data-i18n="domain_shelf_d2">핵심 기능</div>
+                        <ul>
+                            <li data-i18n="domain_shelf_d2_1">FEFO(선만료-선출고) 출고 전략 자동 적용</li>
+                            <li data-i18n="domain_shelf_d2_2">유통기한 임박 제품 자동 경고 (D-7, D-3, D-1)</li>
+                            <li data-i18n="domain_shelf_d2_3">품질 변화 예측 기반 최적 출하 시점 권고</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
